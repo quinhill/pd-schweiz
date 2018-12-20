@@ -14,3 +14,6 @@ The site uses Firebase Auth for admin login, allowing KC to update the content o
 Future iterations will include:
 * Signup forms for classes with logic to prevent further signups after a limit on the class has been reached.
 * Analytics on visitors to the site to determine relevant locations for potential future classes.
+
+### Author
+Quinlan Hill - ![githublink](h)
