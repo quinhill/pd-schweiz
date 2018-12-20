@@ -16,4 +16,4 @@ Future iterations will include:
 * Analytics on visitors to the site to determine relevant locations for potential future classes.
 
 ### Author
-Quinlan Hill - ![GitHub](https://github.com/quinhill)/![LinkedIn](https://www.linkedin.com/in/quinlan-hill/)
+Quinlan Hill - [GitHub](https://github.com/quinhill)/[LinkedIn](https://www.linkedin.com/in/quinlan-hill/)
