@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import SignedInLinks from './SignedInLinks';
+import { Link } from 'react-router-dom';
+import './navbar.css';
 
 
 const Navbar = () => {
   return (
     <nav>
-      <div>
-        <Link to='/' className='logo'>Home</Link>
-        <Link to='/signin'>Sign In</Link>
-        <SignedInLinks />
+      <Link to='/' className='logo'>Home</Link>
+      <div className='navbar'>
+        <Link to='/classes'>Classes</Link>
+        <Link to='/founders'>Founders</Link>
+        <Link to='/literature'>Literature</Link>
+        <Link to='/international'>International</Link>
+        <Link to='/contact'>Contact</Link>
       </div>
     </nav>
   )

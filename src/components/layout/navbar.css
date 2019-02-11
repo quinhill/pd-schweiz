@@ -1,0 +1,11 @@
+nav {
+  width: 100%;
+  
+}
+
+.navbar {
+  width: 60%;
+  float: right;
+  display: flex;
+  justify-content: space-around;
+}
