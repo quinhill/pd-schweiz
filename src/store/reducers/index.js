@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
-import courseReducer from './courseReducer';
+import { firestoreReducer } from 'redux-firestore';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
-  courses: courseReducer
+  firestore: firestoreReducer
 })
 
 export default rootReducer;
