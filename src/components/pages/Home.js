@@ -18,9 +18,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    courses: state.courses
+    courses: state.firestore.ordered.courses
   }
 }
 
