@@ -3,6 +3,7 @@ import CourseList from '../dashboard/CourseList';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import SignIn from '../auth/SignIn';
 
 class Home extends Component {
   render() {
@@ -11,6 +12,7 @@ class Home extends Component {
 
     return (
       <div>
+        <SignIn />
         <CourseList />
       </div>
     )
@@ -18,9 +20,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    courses: state.courses
+    courses: state.firestore.ordered.courses
   }
 }
 
