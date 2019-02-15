@@ -11,6 +11,8 @@ import Courses from './components/pages/Courses';
 import Founders from './components/pages/Founders';
 import International from './components/pages/International';
 import Literature from './components/pages/Literature';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 
 
 class App extends Component {
@@ -26,6 +28,8 @@ class App extends Component {
             <Route path='/founders' component={Founders} />
             <Route path='/international' component={International} />
             <Route path='/literature' component={Literature} />
+            <Route path='/signin' component={SignIn} />
+            <Route path='/signup' component={SignUp} />
           </Switch>
         </div>
       </BrowserRouter>

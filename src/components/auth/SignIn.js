@@ -42,7 +42,7 @@ class SignIn extends Component {
             type='password'
             name='password'
             onChange={this.handleChange}
-            value={this.state.value}
+            value={this.state.password}
           />
           <button
             type='submit'

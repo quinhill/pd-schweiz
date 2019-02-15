@@ -5,7 +5,7 @@ const SignedInLinks = (props) => {
   return (
     <div>
       <NavLink to='/signin'>Sign In</NavLink>
-      <NavLink to='/account'>Account</NavLink>
+      <NavLink to='/signup'>Sign Up</NavLink>
     </div>
   )
 }
