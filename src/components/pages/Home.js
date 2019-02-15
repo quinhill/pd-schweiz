@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
-import CourseList from '../dashboard/CourseList';
+import CourseList from '../courses/CourseList';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import SignIn from '../auth/SignIn';
-import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
   render() {
 
-    const { courses, auth } = this.props;
-
-    if (!auth.uid) {
-      return <Redirect to='/signin' />
-    }
+    const { courses } = this.props;
 
     return (
       <div>
-        <SignIn />
-        <CourseList />
+        <CourseList courses={courses} />
       </div>
     )
   }

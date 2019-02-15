@@ -13,6 +13,7 @@ import International from './components/pages/International';
 import Literature from './components/pages/Literature';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import CourseDetails from './components/courses/CourseDetails';
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path='/literature' component={Literature} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/course/:id' component={CourseDetails} />
           </Switch>
         </div>
       </BrowserRouter>
