@@ -10,8 +10,10 @@ class Home extends Component {
     const { courses } = this.props;
 
     return (
-      <div>
-        <CourseList courses={courses} />
+      <div className='wrapper'>
+        <div className='courses-wrapper'>
+          <CourseList courses={courses} />
+        </div>
       </div>
     )
   }

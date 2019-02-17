@@ -10,14 +10,39 @@ const Navbar = (props) => {
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
   return (
     <nav>
-      <Link to='/' className='logo'>Home</Link>
+      <div className='home-wrapper'>
+        <Link 
+          to='/' 
+          id='home-link' 
+          className='link-tag'
+        >
+          Home
+        </Link>
+      </div>
       <div className='navbar'>
-        <Link to='/classes'>Classes</Link>
-        <Link to='/founders'>Founders</Link>
-        <Link to='/literature'>Literature</Link>
-        <Link to='/international'>International</Link>
-        <Link to='/contact'>Contact</Link>
-        { links }
+        <div className='link-background'>
+          <Link className='link-tag' to='/courses'>
+            Courses
+          </Link>
+        </div>
+        <div className='link-background'>
+          <Link className='link-tag' to='/aboutpd'>
+            About Positive Discipline
+          </Link>
+        </div>
+        <div className='link-background'>
+          <Link className='link-tag' to='/aboutkc'>
+            About KC
+          </Link>
+        </div>
+        <div className='link-background'>
+          <Link className='link-tag' to='/contact'>
+            Contact
+          </Link>
+        </div>
+        <div className='link-background'>
+          { links }
+        </div>
       </div>
     </nav>
   )
