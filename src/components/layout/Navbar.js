@@ -3,11 +3,21 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
+import { changeLang } from '../../store/actions/languageActions';
 
 
 const Navbar = (props) => {
   const { auth } = props;
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+
+  const makeEng = () => {
+    props.changeLang('EN');
+  }
+
+  const makeGer = () => {
+    props.changeLang('DE');
+  }
+
   return (
     <nav>
       <div className='home-wrapper'>
@@ -43,6 +53,10 @@ const Navbar = (props) => {
         <div className='link-background'>
           { links }
         </div>
+        <div>
+          <button onClick={makeEng}>EN</button>
+          <button onClick={makeGer}>DE</button>
+        </div>
       </div>
     </nav>
   )
@@ -56,4 +70,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => ({
+  changeLang: (lang) => dispatch(changeLang(lang))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
