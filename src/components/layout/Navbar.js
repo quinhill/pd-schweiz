@@ -1,15 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import EnNavbar from './EnNavbar';
 import { connect } from 'react-redux';
-import SignedInLinks from './SignedInLinks';
-import SignedOutLinks from './SignedOutLinks';
+import DeSignedInLinks from './DeSignedInLinks';
+import DeSignedOutLinks from './DeSignedOutLinks';
+import EnSignedInLinks from './EnSignedInLinks';
+import EnSignedOutLinks from './EnSignedOutLinks';
 import { changeLang } from '../../store/actions/languageActions';
+import DeNavbar from './DeNavbar';
 
 
 const Navbar = (props) => {
 
-  const { auth } = props;
-  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+  const { auth, language } = props;
+
+  const signedInLinks = language === 'DE' ?
+    <DeSignedInLinks /> : <EnSignedInLinks />
+
+  const signedOutLinks = language === 'DE' ?
+    <DeSignedOutLinks /> : <EnSignedOutLinks />
 
   const makeEng = () => {
     props.changeLang('EN');
@@ -21,43 +29,11 @@ const Navbar = (props) => {
 
   return (
     <nav>
-      <div className='home-wrapper'>
-        <Link 
-          to='/' 
-          id='home-link' 
-          className='link-tag'
-        >
-          Home
-        </Link>
-      </div>
-      <div className='navbar'>
-        <div className='link-background'>
-          <Link className='link-tag' to='/courses'>
-            Courses
-          </Link>
-        </div>
-        <div className='link-background'>
-          <Link className='link-tag' to='/aboutpd'>
-            About Positive Discipline
-          </Link>
-        </div>
-        <div className='link-background'>
-          <Link className='link-tag' to='/aboutkc'>
-            About KC
-          </Link>
-        </div>
-        <div className='link-background'>
-          <Link className='link-tag' to='/contact'>
-            Contact
-          </Link>
-        </div>
-        <div className='link-background'>
-          { links }
-        </div>
-        <div>
-          <button onClick={makeEng}>EN</button>
-          <button onClick={makeGer}>DE</button>
-        </div>
+      {language === 'DE' ? <DeNavbar /> : <EnNavbar />}
+      { auth.uid ? signedInLinks : signedOutLinks }
+      <div>
+        <button onClick={makeEng}>EN</button>
+        <button onClick={makeGer}>DE</button>
       </div>
     </nav>
   )
@@ -66,6 +42,7 @@ const Navbar = (props) => {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
+    language: state.language,
     auth: state.firebase.auth,
     profile: state.firebase.profile
   }

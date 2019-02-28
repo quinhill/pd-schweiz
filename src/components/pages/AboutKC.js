@@ -7,7 +7,6 @@ const AboutKC = (props) => {
 
   let contentDe = props.contentDe ? 
     props.contentDe[0].content.map((par, index) => {
-      console.log(par)
       return (
         <p key={index}>{par}</p>
       )

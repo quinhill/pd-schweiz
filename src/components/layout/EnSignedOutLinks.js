@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SignedInLinks = (props) => {
+const EnSignedInLinks = () => {
   return (
     <div>
       <NavLink to='/signin'>Sign In</NavLink>
@@ -11,4 +11,4 @@ const SignedInLinks = (props) => {
 }
 
 
-export default SignedInLinks;
+export default EnSignedInLinks;

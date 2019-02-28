@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
 
-const SignedInLinks = (props) => {
+const EnSignedInLinks = (props) => {
   return (
     <div className='link-background'>
       <a className='link-tag' onClick={props.signOut}>Log Out</a>
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SignedInLinks);
+export default connect(null, mapDispatchToProps)(EnSignedInLinks);
