@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 const EnSignedInLinks = () => {
   return (
     <div>
-      <NavLink to='/signin'>Sign In</NavLink>
-      <NavLink to='/signup'>Sign Up</NavLink>
+      <NavLink className='auth-tag' to='/signin'>Sign In</NavLink>
+      <NavLink className='auth-tag' to='/signup'>Sign Up</NavLink>
     </div>
   )
 }

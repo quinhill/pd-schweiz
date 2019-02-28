@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 const DeSignedInLinks = () => {
   return (
     <div>
-      <NavLink to='/signin'>Anmelden</NavLink>
-      <NavLink to='/signup'>Registrieren</NavLink>
+      <NavLink className='auth-tag' to='/signin'>Anmelden</NavLink>
+      <NavLink className='auth-tag' to='/signup'>Registrieren</NavLink>
     </div>
   )
 }

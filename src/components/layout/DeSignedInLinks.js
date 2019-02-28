@@ -5,7 +5,7 @@ import { signOut } from '../../store/actions/authActions';
 const DeSignedInLinks = (props) => {
   return (
     <div className='link-background'>
-      <a className='link-tag' onClick={props.signOut}>Abmelden</a>
+      <a className='auth-tag' onClick={props.signOut}>Abmelden</a>
     </div>
   )
 }

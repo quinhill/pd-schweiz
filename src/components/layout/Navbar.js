@@ -7,6 +7,7 @@ import EnSignedInLinks from './EnSignedInLinks';
 import EnSignedOutLinks from './EnSignedOutLinks';
 import { changeLang } from '../../store/actions/languageActions';
 import DeNavbar from './DeNavbar';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = (props) => {
@@ -29,11 +30,35 @@ const Navbar = (props) => {
 
   return (
     <nav>
-      {language === 'DE' ? <DeNavbar /> : <EnNavbar />}
-      { auth.uid ? signedInLinks : signedOutLinks }
-      <div>
-        <button onClick={makeEng}>EN</button>
-        <button onClick={makeGer}>DE</button>
+      <div className='navbar'>
+        <div className='home-wrapper'>
+          <Link 
+            to='/' 
+            id='home-link' 
+            className='link-tag'
+          >
+            Home
+          </Link>
+        </div>
+          {language === 'DE' ? <DeNavbar /> : <EnNavbar />}
+        </div>
+      <div className='auth-language-wrapper'>
+        { auth.uid ? signedInLinks : signedOutLinks }
+        <div className='language-button-wrapper'>
+          <button 
+            onClick={makeEng}
+            className='language-button'
+          >
+            EN
+          </button>
+          <div id='language-divider'></div>
+          <button 
+            onClick={makeGer}
+            className='language-button'
+          >
+            DE
+          </button>
+        </div>
       </div>
     </nav>
   )
