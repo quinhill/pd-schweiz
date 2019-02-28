@@ -7,6 +7,7 @@ import { changeLang } from '../../store/actions/languageActions';
 
 
 const Navbar = (props) => {
+
   const { auth } = props;
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
 
