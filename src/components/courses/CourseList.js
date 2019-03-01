@@ -5,9 +5,10 @@ import CourseSummary from './CourseSummary';
 const CourseList = ({courses}) => {
   return (
     <div>
-      { courses && courses.map(course => {
+      { courses && courses.map((course, index) => {
         return (
           <Link 
+            key={index}
             className='link-tag course-link' 
             to={'/course/' + course.id}
           >

@@ -5,21 +5,50 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 const AboutKC = (props) => {
 
-  console.log(props.content)
+  let contentDe = props.contentDe ? 
+    props.contentDe[0].content.map((par, index) => {
+      return (
+        <p key={index}>{par}</p>
+      )
+    }) : 
+    null;
+
+    let contentEn = props.contentEn ? 
+    props.contentEn[0].content.map((par, index) => {
+      return (
+        <p key={index}>{par}</p>
+      )
+    }) :
+    null;
+
+    let content = props.language === 'DE' ? contentDe : contentEn;
+
+
   return (
     <div>
-
+      {content}
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
-  content: state.firestore.ordered.about_kc
+  language: state.language,
+  contentEn: state.firestore.ordered.about_kc_english,
+  contentDe: state.firestore.ordered.about_kc_german
 })
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'about_kc', limit: 1, orderBy: ['createdAt', 'desc'] }
+    { 
+      collection: 'about_kc_english', 
+      limit: 1, 
+      orderBy: ['createdAt', 'desc'] 
+    },
+    {
+      collection: 'about_kc_german',
+      limit: 1,
+      orderBy: ['createdAt', 'desc']
+    }
   ])
 )(AboutKC);

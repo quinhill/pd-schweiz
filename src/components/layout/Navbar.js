@@ -1,47 +1,63 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import EnNavbar from './EnNavbar';
 import { connect } from 'react-redux';
-import SignedInLinks from './SignedInLinks';
-import SignedOutLinks from './SignedOutLinks';
+import DeSignedInLinks from './DeSignedInLinks';
+import DeSignedOutLinks from './DeSignedOutLinks';
+import EnSignedInLinks from './EnSignedInLinks';
+import EnSignedOutLinks from './EnSignedOutLinks';
+import { changeLang } from '../../store/actions/languageActions';
+import DeNavbar from './DeNavbar';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = (props) => {
-  const { auth } = props;
-  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+
+  const { auth, language } = props;
+
+  const signedInLinks = language === 'DE' ?
+    <DeSignedInLinks /> : <EnSignedInLinks />
+
+  const signedOutLinks = language === 'DE' ?
+    <DeSignedOutLinks /> : <EnSignedOutLinks />
+
+  const makeEng = () => {
+    props.changeLang('EN');
+  }
+
+  const makeGer = () => {
+    props.changeLang('DE');
+  }
+
   return (
     <nav>
-      <div className='home-wrapper'>
-        <Link 
-          to='/' 
-          id='home-link' 
-          className='link-tag'
-        >
-          Home
-        </Link>
-      </div>
       <div className='navbar'>
-        <div className='link-background'>
-          <Link className='link-tag' to='/courses'>
-            Courses
+        <div className='home-wrapper'>
+          <Link 
+            to='/' 
+            id='home-link' 
+            className='link-tag'
+          >
+            Home
           </Link>
         </div>
-        <div className='link-background'>
-          <Link className='link-tag' to='/aboutpd'>
-            About Positive Discipline
-          </Link>
+          {language === 'DE' ? <DeNavbar /> : <EnNavbar />}
         </div>
-        <div className='link-background'>
-          <Link className='link-tag' to='/aboutkc'>
-            About KC
-          </Link>
-        </div>
-        <div className='link-background'>
-          <Link className='link-tag' to='/contact'>
-            Contact
-          </Link>
-        </div>
-        <div className='link-background'>
-          { links }
+      <div className='auth-language-wrapper'>
+        { auth.uid ? signedInLinks : signedOutLinks }
+        <div className='language-button-wrapper'>
+          <button 
+            onClick={makeEng}
+            className='language-button'
+          >
+            EN
+          </button>
+          <div id='language-divider'></div>
+          <button 
+            onClick={makeGer}
+            className='language-button'
+          >
+            DE
+          </button>
         </div>
       </div>
     </nav>
@@ -51,9 +67,14 @@ const Navbar = (props) => {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
+    language: state.language,
     auth: state.firebase.auth,
     profile: state.firebase.profile
   }
 }
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => ({
+  changeLang: (lang) => dispatch(changeLang(lang))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

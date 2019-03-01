@@ -1,19 +1,50 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { firestoreConnect } from 'react-redux-firebase'
-import { compose } from 'redux'
 
 const CourseDetails = (props) => {
-  const { course } = props;
-  console.log(course)
+
+  const { 
+    course, 
+    userCourses 
+  } = props;
+
+  let signedUp;
+  if (userCourses) {
+    const checkCourses = userCourses.filter(courseId => courseId === course.id);
+    signedUp = checkCourses.length > 0;
+  }
+
+  const handleSignUp = (event) => {
+    const { id } = event.target;
+    props.signUpCourse(id)
+  }
+
+  const handleCancel = (event) => {
+    const { id } = event.target;
+    props.cancelCourse(id);
+  }
+
   if (course) {
     return (
       <div className="container section course-details">
-        <div className="card z-depth-0">
-          <div className="card-content">
-            <span className="card-title">{course.title}</span>
-            <p>{course.description}</p>
-          </div>
+        <div className="card-content">
+          <span className="card-title">{course.title}</span>
+        </div>
+        <div>
+          {
+            signedUp ?
+              <button
+                id={course.id}
+                onClick={handleCancel}
+              >
+                Von Kurs abmelden
+              </button> :
+              <button
+                id={course.id}
+                onClick={handleSignUp}
+              >
+                Für Kurs registrieren
+              </button>
+          }
         </div>
       </div>
     )
@@ -26,18 +57,4 @@ const CourseDetails = (props) => {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.id;
-  const courses = state.firestore.data.courses;
-  const course = courses ? courses[id] : null
-  return {
-    course: course
-  }
-}
-
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([{
-    collection: 'courses'
-  }])
-)(CourseDetails)
+export default CourseDetails;
