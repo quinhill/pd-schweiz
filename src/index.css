@@ -47,6 +47,8 @@ nav {
 .link-tag {
   text-decoration: none;
   color: #616060;
+  width: 100%;
+  text-align: center;
 }
 
 .auth-background {
@@ -59,6 +61,8 @@ nav {
 .auth-tag {
   text-decoration: none;
   color: #ffffff;
+  width: 100%;
+  text-align: center;
 }
 
 .auth-tag-background {

@@ -1,14 +1,26 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { firestoreConnect } from 'react-redux-firebase'
-import { compose } from 'redux';
-import { courseSignup } from '../../store/actions/courseActions';
 
 const CourseDetails = (props) => {
-  const { course, id } = props;
 
-  const handleSignUp = () => {
-    props.courseSignup(id)
+  const { 
+    course, 
+    userCourses 
+  } = props;
+
+  let signedUp;
+  if (userCourses) {
+    const checkCourses = userCourses.filter(courseId => courseId === course.id);
+    signedUp = checkCourses.length > 0;
+  }
+
+  const handleSignUp = (event) => {
+    const { id } = event.target;
+    props.signUpCourse(id)
+  }
+
+  const handleCancel = (event) => {
+    const { id } = event.target;
+    props.cancelCourse(id);
   }
 
   if (course) {
@@ -18,11 +30,21 @@ const CourseDetails = (props) => {
           <span className="card-title">{course.title}</span>
         </div>
         <div>
-          <button
-            onClick={handleSignUp}
-          >
-            Für Kurs registrieren
-          </button>
+          {
+            signedUp ?
+              <button
+                id={course.id}
+                onClick={handleCancel}
+              >
+                Von Kurs abmelden
+              </button> :
+              <button
+                id={course.id}
+                onClick={handleSignUp}
+              >
+                Für Kurs registrieren
+              </button>
+          }
         </div>
       </div>
     )
@@ -35,26 +57,4 @@ const CourseDetails = (props) => {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.id;
-  const courses = state.firestore.data.courses;
-  const course = courses ? courses[id] : null;
-  return {
-    uid: state.firebase.auth.uid,
-    course,
-    id
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    courseSignup: (uid) => dispatch(courseSignup(uid))
-  }
-}
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect([{
-    collection: 'courses'
-  }])
-)(CourseDetails)
+export default CourseDetails;
