@@ -49,17 +49,44 @@ nav {
   color: #616060;
 }
 
+.auth-background {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .auth-tag {
   text-decoration: none;
   color: #ffffff;
-  padding-left: 10px;
+}
+
+.auth-tag-background {
+  width: 120px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-tag-background:hover {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(128, 128, 128, 0.795), rgba(255, 255, 255, 0));
+  cursor: pointer;
 }
 
 .link-background {
   height: 100%;
+  width: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.link-background:hover {
+  -webkit-transition: 5s;
+  transition: 5s;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(128, 128, 128, 0.795), rgba(255, 255, 255, 0));
+  cursor: pointer;
 }
 
 #home-link {
@@ -99,13 +126,6 @@ nav {
 #language-divider {
   border-left: 1px solid #ffffff;
   height: 60%;
-}
-
-.link-background:hover {
-  -webkit-transition: 5s;
-  transition: 5s;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(128, 128, 128, 0.795), rgba(255, 255, 255, 0));
-  cursor: pointer;
 }
 
 .wrapper {

@@ -4,8 +4,15 @@ import { signOut } from '../../store/actions/authActions';
 
 const EnSignedInLinks = (props) => {
   return (
-    <div className='link-background'>
-      <a className='auth-tag' onClick={props.signOut}>Log Out</a>
+    <div className='auth-background'>
+      <div className='auth-tag-background'>
+        <a 
+          className='auth-tag' 
+          onClick={props.signOut}
+        >
+          Log Out
+        </a>
+      </div>
     </div>
   )
 }
