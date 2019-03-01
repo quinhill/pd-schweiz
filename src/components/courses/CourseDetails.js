@@ -28,7 +28,16 @@ const CourseDetails = (props) => {
       <div className="container section course-details">
         <div className="card-content">
           <span className="card-title">{course.title}</span>
+          <p>{course.date}</p>
         </div>
+        <div>
+          <p>{course.description}</p>
+        </div>
+        <div>
+          <p>{course.location}</p>
+          <p>{course.cost}</p>
+        </div>
+
         <div>
           {
             signedUp ?
