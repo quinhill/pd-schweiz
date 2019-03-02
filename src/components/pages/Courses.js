@@ -12,7 +12,8 @@ const Courses = (props) => {
 
   const { 
     courses,
-    userCourses
+    userCourses,
+    auth
   } = props;
 
   const signUpCourse = (id) => {
@@ -24,7 +25,7 @@ const Courses = (props) => {
   }
 
   return (
-    <div>
+    <div className='course-page'>
       { courses && courses.map((course, index) => {
         return (
           <CourseDetails 
@@ -33,6 +34,7 @@ const Courses = (props) => {
             signUpCourse={signUpCourse}
             cancelCourse={cancelCourse}
             userCourses={userCourses}
+            auth={auth}
           />
         )
       })}
@@ -42,6 +44,7 @@ const Courses = (props) => {
 
 const mapStateToProps = state => {
   return {
+    auth: state.firebase.auth,
     courses: state.firestore.ordered.courses,
     userCourses: state.firebase.profile.courses
   }

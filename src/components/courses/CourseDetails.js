@@ -1,10 +1,12 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
 
 const CourseDetails = (props) => {
 
   const { 
     course, 
-    userCourses 
+    userCourses ,
+    auth
   } = props;
 
   let signedUp;
@@ -14,6 +16,9 @@ const CourseDetails = (props) => {
   }
 
   const handleSignUp = (event) => {
+    if (!auth.uid) {
+      return props.history.push('/signin')
+    }
     const { id } = event.target;
     props.signUpCourse(id)
   }
@@ -25,10 +30,17 @@ const CourseDetails = (props) => {
 
   if (course) {
     return (
-      <div className="container section course-details">
-        <div className="card-content">
-          <span className="card-title">{course.title}</span>
+      <div className="course-wrapper">
+        <div className="card-title">
+          <h3 className="card-title">{course.title}</h3>
+          <p>{course.date}</p>
         </div>
+        <div className='course-description'>
+          <p>{course.location}</p>
+          <p>{course.description}</p>
+        </div>
+          <p>{course.cost}</p>
+
         <div>
           {
             signedUp ?
@@ -57,4 +69,4 @@ const CourseDetails = (props) => {
   }
 }
 
-export default CourseDetails;
+export default withRouter(CourseDetails);
