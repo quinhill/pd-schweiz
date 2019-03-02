@@ -182,3 +182,43 @@ nav {
 .course-description {
 
 }
+
+/* Auth Pages */
+
+.auth-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-title {
+  font-weight: lighter;
+}
+
+.auth-input {
+  width: 250px;
+  height: 25px;
+  margin: 10px;
+  border-radius: 5px;
+  padding-left: 5px;
+  border: 1px solid black;
+}
+
+.auth-button {
+  width: 200px;
+  height: 25px;
+  margin: 10px;
+  background-color: #616060;
+  color: #ffffff;
+  border-radius: 15px;
+}
+
+.auth-button:disabled {
+  background-color: #8f8f8f;
+}

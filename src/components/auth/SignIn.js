@@ -29,24 +29,28 @@ class SignIn extends Component {
     const { authError } = this.props;
 
     return (
-      <div>
+      <div className='auth-page'>
         <form
+          className='auth-form'
           onSubmit={this.handleSubmit}
         >
-          <h5>Sign In</h5>
-          <input 
+          <h5 className='auth-title'>Sign In</h5>
+          <input
+            className='auth-input'
             type='email'
             name='email'
             onChange={this.handleChange}
             value={this.state.email}
           />
           <input
+            className='auth-input'
             type='password'
             name='password'
             onChange={this.handleChange}
             value={this.state.password}
           />
           <button
+            className='auth-button'
             type='submit'
           >
             Sign In

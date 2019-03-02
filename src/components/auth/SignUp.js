@@ -10,7 +10,11 @@ class SignUp extends Component {
       lastName: '',
       email: '',
       password: '',
-      address: ''
+      passwordTwo: '',
+      address: '',
+      zip: '',
+      city: '',
+      phone: ''
     }
   }
 
@@ -26,47 +30,111 @@ class SignUp extends Component {
   }
 
   render() {
+
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      passwordTwo,
+      address,
+      zip,
+      city,
+      phone
+    } = this.state;
+
+    const isInvalid = firstName.length < 2 ||
+                      lastName.length < 2 ||
+                      email.length < 6 ||
+                      password.length < 6 ||
+                      password !== passwordTwo;
+
     return (
-      <div>
+      <div className='auth-page'>
         <form
+          className='auth-form'
           onSubmit={this.handleSubmit}
         >
+          <h5 className='auth-title'>Sign Up</h5>
           <input
+            className='auth-input'
             placeholder='First Name'
             type='text'
             name='firstName'
-            value={this.state.firstName}
+            value={firstName}
             onChange={this.handleChange}
           />
           <input
+            className='auth-input'
             placeholder='Last Name'
             type='text'
             name='lastName'
-            value={this.state.lastName}
+            value={lastName}
             onChange={this.handleChange}
           />
           <input
+            className='auth-input'
             placeholder='Email'
             type='email'
             name='email'
-            value={this.state.email}
+            value={email}
             onChange={this.handleChange}
           />
           <input
+            className='auth-input'
             placeholder='password'
             type='password'
             name='password'
-            value={this.state.password}
+            value={password}
             onChange={this.handleChange}
           />
           <input
+            className='auth-input'
+            placeholder='Repeat password'
+            type='password'
+            name='passwordTwo'
+            value={passwordTwo}
+            onChange={this.handleChange}
+          />
+          <input
+            className='auth-input'
             placeholder='Address'
             type='text'
             name='address'
-            value={this.state.address}
+            value={address}
             onChange={this.handleChange}
           />
-          <button type='submit'>Sign Up</button>
+          <input
+            className='auth-input'
+            placeholder='PLZ'
+            type='text'
+            name='zip'
+            value={zip}
+            onChange={this.handleChange}
+          />
+          <input
+            className='auth-input'
+            placeholder='City'
+            type='text'
+            name='city'
+            value={city}
+            onChange={this.handleChange}
+          />
+          <input
+            className='auth-input'
+            placeholder='Phone Number'
+            type='text'
+            name='phone'
+            value={phone}
+            onChange={this.handleChange}
+          />
+          <button
+            className='auth-button'
+            type='submit'
+            disabled={isInvalid}
+          >
+            Sign Up
+          </button>
         </form>
       </div>
     )
