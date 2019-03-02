@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const DeSignedInLinks = () => {
   return (
-    <div class='auth-background'>
+    <div className='auth-background'>
       <div className='auth-tag-background'>
         <NavLink
           className='auth-tag' 

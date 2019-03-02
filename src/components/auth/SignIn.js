@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
+import { withRouter } from 'react-router-dom';
 
 class SignIn extends Component {
   constructor() {
@@ -20,6 +21,7 @@ class SignIn extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.signIn(this.state);
+    this.props.history.push('/')
   }
 
   render() {
@@ -70,4 +72,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));

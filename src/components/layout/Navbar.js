@@ -37,7 +37,11 @@ const Navbar = (props) => {
             id='home-link' 
             className='link-tag'
           >
-            Home
+          <img 
+            src='/positive-discipline.png' 
+            alt='positive discipline'
+            className='home-link'
+          />
           </Link>
         </div>
           {language === 'DE' ? <DeNavbar /> : <EnNavbar />}
