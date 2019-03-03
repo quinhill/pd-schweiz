@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
+import { authDe, authEn } from '../languages';
 
 class SignUp extends Component {
   constructor() {
@@ -49,16 +50,19 @@ class SignUp extends Component {
                       password.length < 6 ||
                       password !== passwordTwo;
 
+    const lang = this.props.language === 'DE' ? authDe : authEn;
+
     return (
       <div className='auth-page'>
         <form
           className='auth-form'
           onSubmit={this.handleSubmit}
         >
-          <h5 className='auth-title'>Sign Up</h5>
+          <h5 className='auth-title'>{lang.signup}</h5>
+          <label>{lang.name}</label>
           <input
             className='auth-input'
-            placeholder='First Name'
+            placeholder={lang.signup}
             type='text'
             name='firstName'
             value={firstName}
@@ -66,23 +70,25 @@ class SignUp extends Component {
           />
           <input
             className='auth-input'
-            placeholder='Last Name'
+            placeholder={lang.lastName}
             type='text'
             name='lastName'
             value={lastName}
             onChange={this.handleChange}
           />
+          <label>{lang.email}</label>
           <input
             className='auth-input'
-            placeholder='Email'
+            placeholder={lang.email}
             type='email'
             name='email'
             value={email}
             onChange={this.handleChange}
           />
+          <label>{lang.password}</label>
           <input
             className='auth-input'
-            placeholder='password'
+            placeholder={lang.password}
             type='password'
             name='password'
             value={password}
@@ -90,15 +96,16 @@ class SignUp extends Component {
           />
           <input
             className='auth-input'
-            placeholder='Repeat password'
+            placeholder={lang.passwordTwo}
             type='password'
             name='passwordTwo'
             value={passwordTwo}
             onChange={this.handleChange}
           />
+          <label>{lang.address}</label>
           <input
             className='auth-input'
-            placeholder='Address'
+            placeholder={lang.address}
             type='text'
             name='address'
             value={address}
@@ -106,7 +113,7 @@ class SignUp extends Component {
           />
           <input
             className='auth-input'
-            placeholder='PLZ'
+            placeholder={lang.zip}
             type='text'
             name='zip'
             value={zip}
@@ -114,15 +121,16 @@ class SignUp extends Component {
           />
           <input
             className='auth-input'
-            placeholder='City'
+            placeholder={lang.city}
             type='text'
             name='city'
             value={city}
             onChange={this.handleChange}
           />
+          <label>{lang.cell}</label>
           <input
             className='auth-input'
-            placeholder='Phone Number'
+            placeholder={lang.cell}
             type='text'
             name='phone'
             value={phone}
@@ -133,7 +141,7 @@ class SignUp extends Component {
             type='submit'
             disabled={isInvalid}
           >
-            Sign Up
+            {lang.signup}
           </button>
         </form>
       </div>
@@ -141,10 +149,14 @@ class SignUp extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  language: state.language
+})
+
 const mapDispatchToProps = (dispatch) => {
   return {
     signUp: (newUser) => dispatch(signUp(newUser))
   }
 }
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

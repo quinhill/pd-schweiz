@@ -31,15 +31,13 @@ class SignIn extends Component {
 
     const lang = language === 'DE' ? authDe : authEn;
 
-    console.log(lang)
-
     return (
       <div className='auth-page'>
         <form
           className='auth-form'
           onSubmit={this.handleSubmit}
         >
-          <h5 className='auth-title'>Sign In</h5>
+          <h5 className='auth-title'>{lang.signin}</h5>
           <label>{lang.email}</label>
           <input
             className='auth-input'
@@ -60,7 +58,7 @@ class SignIn extends Component {
             className='auth-button'
             type='submit'
           >
-            Sign In
+            {lang.signin}
           </button>
           <div>
             { authError ? <p>{authError}</p> : null }
