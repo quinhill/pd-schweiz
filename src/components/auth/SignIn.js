@@ -40,7 +40,7 @@ class SignIn extends Component {
           onSubmit={this.handleSubmit}
         >
           <h5 className='auth-title'>Sign In</h5>
-          <label>Email</label>
+          <label>{lang.email}</label>
           <input
             className='auth-input'
             type='email'
@@ -48,7 +48,7 @@ class SignIn extends Component {
             onChange={this.handleChange}
             value={this.state.email}
           />
-          <label>Email</label>
+          <label>{lang.password}</label>
           <input
             className='auth-input'
             type='password'
