@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
 import { withRouter } from 'react-router-dom';
+import { authDe, authEn } from '../languages';
 
 class SignIn extends Component {
   constructor() {
@@ -26,7 +27,11 @@ class SignIn extends Component {
 
   render() {
 
-    const { authError } = this.props;
+    const { authError, language } = this.props;
+
+    const lang = language === 'DE' ? authDe : authEn;
+
+    console.log(lang)
 
     return (
       <div className='auth-page'>
@@ -35,6 +40,7 @@ class SignIn extends Component {
           onSubmit={this.handleSubmit}
         >
           <h5 className='auth-title'>Sign In</h5>
+          <label>Email</label>
           <input
             className='auth-input'
             type='email'
@@ -42,6 +48,7 @@ class SignIn extends Component {
             onChange={this.handleChange}
             value={this.state.email}
           />
+          <label>Email</label>
           <input
             className='auth-input'
             type='password'
@@ -66,7 +73,8 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    language: state.language
   }
 }
 
