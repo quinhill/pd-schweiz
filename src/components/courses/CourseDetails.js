@@ -1,11 +1,12 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const CourseDetails = (props) => {
 
   const { 
     course, 
-    userCourses ,
+    userCourses,
     auth
   } = props;
 
@@ -17,7 +18,7 @@ const CourseDetails = (props) => {
 
   const handleSignUp = (event) => {
     if (!auth.uid) {
-      return props.history.push('/signin')
+      return props.history.push('/coursesignup/' + course.id)
     }
     const { id } = event.target;
     props.signUpCourse(id)

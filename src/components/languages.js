@@ -1,6 +1,7 @@
 export const authDe = {
   signup: 'Registrieren',
   signin: 'Anmelden',
+  courseSignup: 'Für Kurs anmelden',
   signout: 'Abmelden',
   email: 'Email',
   password: 'Passwort',
@@ -12,12 +13,15 @@ export const authDe = {
   zip: 'PLZ',
   city: 'Ortschaft',
   phone: 'Telefon',
-  cell: 'Handy Nummer'
+  cell: 'Handy Nummer',
+  signinText: 'Haben Sie bereits ein Konto erstell? Sie können sich hier ',
+  registerText: 'Wollen Sie ein Konto erstellen um zukünftig kein Anmeldungsformular mehr ausfüllen zu müssen? Sie können sich hier Registrieren'
 };
 
 export const authEn = {
   signup: 'Sign Up',
   signin: 'Sign In',
+  courseSignup: 'Sign up for course',
   signout: 'Sign Out',
   email: 'Email',
   password: 'Password',
@@ -29,7 +33,9 @@ export const authEn = {
   zip: 'Postal code',
   city: 'City',
   phone: 'Phone',
-  cell: 'Cell phone number'
+  cell: 'Cell phone number',
+  signinText: 'Already have an account? Click here to ',
+  registerText: 'By creating an account, you will not have to fill out the course registration for any future courses. You can sign up with the form below.'
 };
 
 export const navbarDe = {
