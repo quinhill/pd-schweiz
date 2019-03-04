@@ -58,4 +58,24 @@ export const courseCancel = (id) => {
       courses
     })
   }
-}
+};
+
+export const anonCourseSignup = (data) => {
+  return (dispatch, getState, {getFirestore}) => {
+    const firestore = getFirestore();
+
+    const course = getState().firestore.data.courses[data.id];
+    let participants = getState().firestore.data.courses[data.id].participants;
+
+    participants = [...participants, data.user];
+
+    firestore.collection('courses').doc(data.id).set({
+      ...course,
+      participants
+    }).then(() => {
+      dispatch({ type: 'COURSE_SIGNUP_SUCCESS' })
+    }).catch((err) => {
+      dispatch({ type: 'COURSE_SIGNUP_ERROR', err })
+    })
+  }
+};

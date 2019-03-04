@@ -13,7 +13,7 @@ import AboutKC from './components/pages/AboutKC';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CourseDetails from './components/courses/CourseDetails';
-
+import CourseSignup from './components/courses/CourseSignup';
 
 class App extends Component {
   render() {
@@ -30,6 +30,7 @@ class App extends Component {
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/course/:id' component={CourseDetails} />
+            <Route path='/coursesignup/:id' component={CourseSignup} />
           </Switch>
         </div>
       </BrowserRouter>
