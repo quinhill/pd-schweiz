@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { changeLang } from '../../store/actions/languageActions';
 
 const AboutPD = (props) => {
 
@@ -25,8 +26,10 @@ const AboutPD = (props) => {
 
 
   return (
-    <div>
-      {content}
+    <div className='content-wrapper'>
+      <div className='paragraph-wrapper'>
+        {content}
+      </div>
     </div>
   )
 }

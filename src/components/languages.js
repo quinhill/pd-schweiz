@@ -1,6 +1,7 @@
 export const authDe = {
   signup: 'Registrieren',
   signin: 'Anmelden',
+  signout: 'Abmelden',
   email: 'Email',
   password: 'Passwort',
   passwordTwo: 'Passwort wiederholen',
@@ -17,6 +18,7 @@ export const authDe = {
 export const authEn = {
   signup: 'Sign Up',
   signin: 'Sign In',
+  signout: 'Sign Out',
   email: 'Email',
   password: 'Password',
   passwordTwo: 'Repeat password',
@@ -29,3 +31,17 @@ export const authEn = {
   phone: 'Phone',
   cell: 'Cell phone number'
 };
+
+export const navbarDe = {
+  courses: 'Kurse',
+  aboutPD: 'Über Positive Disziplin',
+  aboutKC: 'Über KC',
+  contact: 'Kontakt'
+}
+
+export const navbarEn = {
+  courses: 'Courses',
+  aboutPD: 'About Positive Discipline',
+  aboutKC: 'About KC',
+  contact: 'Contact'
+}

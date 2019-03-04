@@ -25,8 +25,10 @@ const AboutKC = (props) => {
 
 
   return (
-    <div>
-      {content}
+    <div className='content-wrapper'>
+      <div className='paragraph-wrapper'>
+        {content}
+      </div>
     </div>
   )
 }
