@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
+import { authDe, authEn } from '../languages';
 
-const DeSignedInLinks = (props) => {
+const SignedInLinks = (props) => {
+
+  const lang = props.language === 'DE' ? authDe : authEn;
+
   return (
     <div className='auth-background'>
       <div className='auth-tag-background'>
@@ -10,12 +14,16 @@ const DeSignedInLinks = (props) => {
           className='auth-tag' 
           onClick={props.signOut}
         >
-          Abmelden
+          {lang.signout}
         </a>
       </div>
     </div>
   )
 }
+
+const mapStateToProps = (state) => ({
+  language: state.language
+})
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -23,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(DeSignedInLinks);
+export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks);

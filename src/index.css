@@ -45,10 +45,13 @@ nav {
 }
 
 .link-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: #616060;
   width: 100%;
-  text-align: center;
+  height: 100%;
 }
 
 .auth-background {
@@ -114,6 +117,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding-right: 10px;
 }
 
 .language-button-wrapper {
@@ -221,4 +225,18 @@ nav {
 
 .auth-button:disabled {
   background-color: #8f8f8f;
+}
+
+/* Contact */
+
+/* Page Content */
+
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.paragraph-wrapper {
+  width: 80%;
 }

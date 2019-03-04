@@ -1,7 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { authDe, authEn } from '../languages';
+import { connect } from 'react-redux';
 
-const DeSignedInLinks = () => {
+const SignedInLinks = (props) => {
+
+  const lang = props.language === 'DE' ? authDe : authEn;
+
   return (
     <div className='auth-background'>
       <div className='auth-tag-background'>
@@ -9,7 +14,7 @@ const DeSignedInLinks = () => {
           className='auth-tag' 
           to='/signin'
         >
-          Anmelden
+          {lang.signin}
         </NavLink>
       </div>
       <div className='auth-tag-background'>
@@ -17,12 +22,15 @@ const DeSignedInLinks = () => {
           className='auth-tag' 
           to='/signup'
         >
-          Registrieren
+          {lang.signup}
         </NavLink>
       </div>
     </div>
   )
 }
 
+const mapStateToProps = (state) => ({
+  language: state.language
+})
 
-export default DeSignedInLinks;
+export default connect(mapStateToProps)(SignedInLinks);

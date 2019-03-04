@@ -1,24 +1,17 @@
 import React from 'react';
-import EnNavbar from './EnNavbar';
 import { connect } from 'react-redux';
-import DeSignedInLinks from './DeSignedInLinks';
-import DeSignedOutLinks from './DeSignedOutLinks';
-import EnSignedInLinks from './EnSignedInLinks';
-import EnSignedOutLinks from './EnSignedOutLinks';
+import SignedInLinks from './SignedInLinks';
+import SignedOutLinks from './SignedOutLinks';
 import { changeLang } from '../../store/actions/languageActions';
-import DeNavbar from './DeNavbar';
 import { Link } from 'react-router-dom';
+import { navbarDe, navbarEn } from '../languages';
 
 
 const Navbar = (props) => {
 
   const { auth, language } = props;
 
-  const signedInLinks = language === 'DE' ?
-    <DeSignedInLinks /> : <EnSignedInLinks />
-
-  const signedOutLinks = language === 'DE' ?
-    <DeSignedOutLinks /> : <EnSignedOutLinks />
+  const lang = language === 'DE' ? navbarDe : navbarEn;
 
   const makeEng = () => {
     props.changeLang('EN');
@@ -32,31 +25,52 @@ const Navbar = (props) => {
     <nav>
       <div className='navbar'>
         <div className='home-wrapper'>
-          <Link 
-            to='/' 
-            id='home-link' 
+          <Link
+            to='/'
+            id='home-link'
             className='link-tag'
           >
-          <img 
-            src='/positive-discipline.png' 
-            alt='positive discipline'
-            className='home-link'
-          />
+            <img
+              src='/positive-discipline.png'
+              alt='positive discipline'
+              className='home-link'
+            />
           </Link>
         </div>
-          {language === 'DE' ? <DeNavbar /> : <EnNavbar />}
+        <div className='page-links'>
+          <div className='link-background'>
+            <Link className='link-tag' to='/courses'>
+              {lang.courses}
+            </Link>
+          </div>
+          <div className='link-background'>
+            <Link className='link-tag' to='/aboutpd'>
+              {lang.aboutPD}
+            </Link>
+          </div>
+          <div className='link-background'>
+            <Link className='link-tag' to='/aboutkc'>
+              {lang.aboutKC}
+            </Link>
+          </div>
+          <div className='link-background'>
+            <Link className='link-tag' to='/contact'>
+              {lang.contact}
+            </Link>
+          </div>
         </div>
+      </div>
       <div className='auth-language-wrapper'>
-        { auth.uid ? signedInLinks : signedOutLinks }
+        {auth.uid ? <SignedInLinks /> : <SignedOutLinks />}
         <div className='language-button-wrapper'>
-          <button 
+          <button
             onClick={makeEng}
             className='language-button'
           >
             EN
           </button>
           <div id='language-divider'></div>
-          <button 
+          <button
             onClick={makeGer}
             className='language-button'
           >
