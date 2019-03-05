@@ -62,7 +62,7 @@ class SignUp extends Component {
           <label>{lang.name}</label>
           <input
             className='auth-input'
-            placeholder={lang.signup}
+            placeholder={lang.firstName}
             type='text'
             name='firstName'
             value={firstName}

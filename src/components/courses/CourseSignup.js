@@ -7,8 +7,6 @@ import { connect } from 'react-redux';
 const CourseSignup = (props) => {
   const id = props.match.params.id;
 
-  console.log(id)
-
   const lang = props.language === 'DE' ? authDe : authEn;
 
   return(

@@ -203,6 +203,7 @@ nav {
 
 .auth-title {
   font-weight: lighter;
+  font-size: 15px;
 }
 
 .auth-input {
@@ -247,4 +248,13 @@ nav {
   width: 80%;
   display: flex;
   justify-content: space-around;
+}
+
+.signedup-page {
+  width: 100%;
+  text-align: center;
+}
+
+.back-to-home {
+  font-size: 15px;
 }
