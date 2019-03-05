@@ -17,7 +17,10 @@ export const courseSignup = (id) => {
       ...course,
       participants
     }).then(() => {
-      dispatch({ type: 'COURSE_SIGNUP_SUCCESS' })
+      dispatch({ 
+        type: 'COURSE_SIGNUP_SUCCESS',
+        course: {...profile, ...course}
+      })
     }).catch((err) => {
       dispatch({ type: 'COURSE_SIGNUP_ERROR', err })
     })
@@ -48,9 +51,12 @@ export const courseCancel = (id) => {
       ...course,
       participants
     }).then(() => {
-      dispatch({ type: 'COURSE_SIGNUP_SUCCESS' })
+      dispatch({ 
+        type: 'COURSE_CANCEL_SUCCESS',
+        course: {...profile, ...course}
+      })
     }).catch((err) => {
-      dispatch({ type: 'COURSE_SIGNUP_ERROR', err })
+      dispatch({ type: 'COURSE_CANCEL_ERROR', err })
     })
 
     firestore.collection('users').doc(uid).set({
@@ -65,17 +71,24 @@ export const anonCourseSignup = (data) => {
     const firestore = getFirestore();
 
     const course = getState().firestore.data.courses[data.id];
-    let participants = getState().firestore.data.courses[data.id].participants;
-
-    participants = [...participants, data.user];
+    const participants = getState().firestore.data.courses[data.id].participants;
 
     firestore.collection('courses').doc(data.id).set({
       ...course,
-      participants
+      participants: [...participants, data.user]
     }).then(() => {
-      dispatch({ type: 'COURSE_SIGNUP_SUCCESS' })
+      dispatch({ 
+        type: 'COURSE_SIGNUP_SUCCESS',
+        course: { ...data.user, ...course}
+      })
     }).catch((err) => {
       dispatch({ type: 'COURSE_SIGNUP_ERROR', err })
     })
   }
 };
+
+export const resetState = () => {
+  return (dispatch) => {
+    dispatch({ type: 'RESET_COURSE' })
+  }
+}

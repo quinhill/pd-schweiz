@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 const CourseDetails = (props) => {
 
@@ -21,12 +20,14 @@ const CourseDetails = (props) => {
       return props.history.push('/coursesignup/' + course.id)
     }
     const { id } = event.target;
-    props.signUpCourse(id)
+    props.signUpCourse(id);
+    props.history.push('/signupmessage');
   }
 
   const handleCancel = (event) => {
     const { id } = event.target;
     props.cancelCourse(id);
+    props.history.push('/signupmessage');
   }
 
   if (course) {

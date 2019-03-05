@@ -51,3 +51,17 @@ export const navbarEn = {
   aboutKC: 'About KC',
   contact: 'Contact'
 }
+
+export const courseSignupDe = {
+  signupSuccess: (name, course, date) => (`Hallo ${name}, Sie haben sich erfolgreich für den ${course} am ${date} angemeldet!`),
+  loading: 'am laden...',
+  homelink: 'Zurück zur Homepage',
+  cancelSuccess: (name, course) => (`Hallo ${name}, Sie haben sich erfolgreich vom ${course} abgemeldet.`)
+}
+
+export const courseSignupEn = {
+  signupSuccess: (name, course, date) => (`Hi ${name}, you have been signed up for the ${course} on ${date}!`),
+  loading: 'loading...',
+  homelink: 'Back to the homepage',
+  cancelSuccess: (name, course) => (`Hi ${name}, you have successful dropped out of the ${course}.`)
+}
