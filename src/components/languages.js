@@ -14,7 +14,7 @@ export const authDe = {
   city: 'Ortschaft',
   phone: 'Telefon',
   cell: 'Handy Nummer',
-  signinText: 'Haben Sie bereits ein Konto erstell? Sie können sich hier ',
+  signinText: 'Haben Sie bereits ein Konto erstellt? Sie können sich hier ',
   registerText: 'Wollen Sie ein Konto erstellen um zukünftig kein Anmeldungsformular mehr ausfüllen zu müssen? Sie können sich hier Registrieren'
 };
 
