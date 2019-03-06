@@ -9,21 +9,30 @@ const SignedInLinks = (props) => {
 
   return (
     <div className='auth-background'>
-      <div className='auth-tag-background'>
-        <NavLink
-          className='auth-tag' 
-          to='/signin'
+      <div className='auth-button-wrapper'>
+        <button
+          className='user-button'
         >
-          {lang.signin}
-        </NavLink>
+          {lang.user}
+        </button>
       </div>
-      <div className='auth-tag-background'>
-        <NavLink 
-          className='auth-tag' 
-          to='/signup'
-        >
-          {lang.signup}
-        </NavLink>
+      <div className='auth-content'>
+        <div className='auth-tag-background'>
+          <NavLink 
+            className='auth-tag' 
+            to='/signin'
+          >
+            {lang.signin}
+          </NavLink>
+        </div>
+        <div className='auth-tag-background'>
+          <NavLink 
+            className='auth-tag' 
+            to='/signup'
+          >
+            {lang.signup}
+          </NavLink>
+        </div>
       </div>
     </div>
   )

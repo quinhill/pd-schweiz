@@ -62,7 +62,7 @@ code {
 }
 
 p {
-  margin: 15px;
+  margin: 15px 0 15px 0;
   line-height: 20px;
 }
 
@@ -72,10 +72,6 @@ nav {
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.37) 0px 1px 1px 1px;
   margin-bottom: 10px;
-}
-
-.navbar-wrapper {
-  display: flex;
 }
 
 .navbar {
@@ -107,9 +103,26 @@ nav {
 
 .auth-background {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  display: inline-block;
+}
+
+.auth-background:hover .auth-content {
+  display: block;
+}
+
+.user-button {
+  height: 70px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 100%;
+  background: none;
+  border: none;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.auth-background:hover .auth-button-wrapper {
+  background: #616060;
 }
 
 .auth-tag {
@@ -119,16 +132,28 @@ nav {
   text-align: center;
 }
 
+.auth-tag:hover {
+  font-weight: 800;
+}
+
+.auth-content {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+  z-index: 1;
+  background: #616060;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.37);
+}
+
 .auth-tag-background {
-  width: 120px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  background: #616060;
+  height: 30px;
+  width: 100%;
+  text-align: center;
 }
 
 .auth-tag-background:hover {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(128, 128, 128, 0.795), rgba(255, 255, 255, 0));
   cursor: pointer;
 }
 
@@ -219,11 +244,9 @@ nav {
 }
 
 .course-wrapper {
-  display: grid;
-  grid-template-rows: 20px 60px 1fr;
-  border: 1px solid black;
+  border-radius: 5px;
   padding: 15px;
-  margin: 10px;
+  margin: 5px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -231,10 +254,39 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 700;
 }
 
-.course-description {
+.card-p {
+  margin: 20px 0 20px 0;
+}
 
+.description-tag {
+  font-weight: 700;
+  color: #323235;
+}
+
+.signup-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.course-signup-button {
+  background: #616060;
+  color: #ffffff;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 90%;
+  font-weight: 500;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.37);
+}
+
+.course-signup-button:hover {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(187, 187, 187, 0.795), rgba(255, 255, 255, 0));
+  cursor: pointer;
 }
 
 /* Auth Pages */
@@ -252,8 +304,11 @@ nav {
 }
 
 .auth-title {
-  font-weight: lighter;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 17px;
+  margin: 20px 20px;
+  line-height: 140%;
+  color: #616060;
 }
 
 .auth-input {
@@ -263,7 +318,7 @@ nav {
   margin: 10px;
   border-radius: 5px;
   padding-left: 5px;
-  border: 1px solid black;
+  border: 1px solid #616060;
 }
 
 .auth-button {
@@ -307,10 +362,22 @@ label {
 }
 
 .signedup-page {
+  display: flex;
   width: 100%;
-  text-align: center;
+  height: calc(100vh - 80px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .back-to-home {
   font-size: 15px;
+  border: none;
+  text-decoration: underline;
 }
+
+/* @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+} */

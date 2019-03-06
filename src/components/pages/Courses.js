@@ -7,6 +7,7 @@ import {
   courseSignup, 
   courseCancel 
 } from '../../store/actions/courseActions';
+import { Link } from 'react-router-dom';
 
 const Courses = (props) => {
 
@@ -26,6 +27,10 @@ const Courses = (props) => {
 
   return (
     <div className='course-page'>
+      <h5 className='auth-title'>
+        <span className='description-tag'>For English Speakers:</span> All Positive Discipline courses are currently in German. If you are interested in attending a course taught in English, please contact KC directly. Information on how to reach KC can be found here.
+      </h5>
+      <Link to='/contact'>Contact</Link>
       { courses && courses.map((course, index) => {
         return (
           <CourseDetails 
