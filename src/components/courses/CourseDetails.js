@@ -37,26 +37,34 @@ const CourseDetails = (props) => {
           <h3 className="card-title">{course.title}</h3>
           <p>{course.date}</p>
         </div>
-        <div className='course-description'>
-          <p>{course.location}</p>
-          <p>{course.description}</p>
-        </div>
-          <p>{course.cost}</p>
-
-        <div>
+        <p className='card-p'>
+          <span className='description-tag'>Ort: </span>
+          {course.location}
+        </p>
+        <p className='card-p'>
+          <p className='description-tag'>Beschreibung: </p>
+          {course.description}
+        </p>
+        <p className='card-p'>
+          <span className='description-tag'>Preis: </span>
+          {course.cost}
+        </p>
+        <div className='signup-button-wrapper'>
           {
             signedUp ?
               <button
+                className='course-signup-button'
                 id={course.id}
                 onClick={handleCancel}
               >
                 Von Kurs abmelden
               </button> :
               <button
+                className='course-signup-button'
                 id={course.id}
                 onClick={handleSignUp}
               >
-                Für Kurs registrieren
+                Für Kurs anmelden
               </button>
           }
         </div>
