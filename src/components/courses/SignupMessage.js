@@ -34,7 +34,8 @@ const SignupMessage = (props) => {
     return (
       <div className='signedup-page'>
         <h5 className='auth-title'>{lang.loading}</h5>
-        <button 
+        <button
+          className='back-to-home'
           onClick={resetState}
         >
           {lang.homelink}?

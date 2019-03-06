@@ -252,8 +252,11 @@ nav {
 }
 
 .auth-title {
-  font-weight: lighter;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 17px;
+  margin: 20px 20px;
+  line-height: 140%;
+  color: #616060;
 }
 
 .auth-input {
@@ -263,7 +266,7 @@ nav {
   margin: 10px;
   border-radius: 5px;
   padding-left: 5px;
-  border: 1px solid black;
+  border: 1px solid #616060;
 }
 
 .auth-button {
@@ -307,10 +310,22 @@ label {
 }
 
 .signedup-page {
+  display: flex;
   width: 100%;
-  text-align: center;
+  height: calc(100vh - 80px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .back-to-home {
   font-size: 15px;
+  border: none;
+  text-decoration: underline;
 }
+
+/* @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+} */

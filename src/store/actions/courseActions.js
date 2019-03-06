@@ -1,7 +1,6 @@
 export const courseSignup = (id) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
-
     const uid = getState().firebase.auth.uid;
     const profile = getState().firebase.profile;
     let courses = getState().firebase.profile.courses;
