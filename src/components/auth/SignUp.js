@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 import { authDe, authEn } from '../languages';
+import { withRouter } from 'react-router-dom';
 
 class SignUp extends Component {
   constructor() {
@@ -28,9 +29,12 @@ class SignUp extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.signUp(this.state);
+    this.props.history.push('/signupsuccess')
   }
 
   render() {
+
+    const { language } = this.props;
 
     const {
       firstName,
@@ -50,7 +54,7 @@ class SignUp extends Component {
                       password.length < 6 ||
                       password !== passwordTwo;
 
-    const lang = this.props.language === 'DE' ? authDe : authEn;
+    const lang = language === 'DE' ? authDe : authEn;
 
     return (
       <div className='auth-page'>
@@ -150,7 +154,8 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  language: state.language
+  language: state.language,
+  course: state.course
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -159,4 +164,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));

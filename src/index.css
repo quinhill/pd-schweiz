@@ -119,6 +119,7 @@ nav {
   border: none;
   color: #ffffff;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .auth-background:hover .auth-button-wrapper {
@@ -361,10 +362,18 @@ label {
   justify-content: space-around;
 }
 
+.disclaimer-wrapper {
+  width: 60%;
+}
+
+.contact-link {
+  margin-left: 5px;
+}
+
 .signedup-page {
   display: flex;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: 50vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;

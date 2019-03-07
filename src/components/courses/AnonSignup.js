@@ -43,6 +43,11 @@ class AnonSignup extends Component {
       email,
       cell
     } = this.state;
+
+    const invalid = !firstName.length ||
+                     !lastName.length ||
+                     !email.length ||
+                     cell.length < 7;
     
     const lang = this.props.language === 'DE' ? authDe : authEn;
       
@@ -54,7 +59,7 @@ class AnonSignup extends Component {
         >
           <h5 className='auth-title'>
             {lang.signinText}
-            <Link to='signin'>{lang.signin}</Link>
+            <Link to='/signin'>{lang.signin}</Link>
           </h5>
           <h5 className='auth-title'>{lang.courseSignup}</h5>
           <label>{lang.name}</label>
@@ -95,8 +100,9 @@ class AnonSignup extends Component {
           <button 
             type='submit'
             className='auth-button'
+            disabled={invalid}
           >
-            {lang.signup}
+            {lang.courseSignupButton}
           </button>
         </form>
       </div>

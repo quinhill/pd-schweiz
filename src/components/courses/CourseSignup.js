@@ -23,7 +23,7 @@ const CourseSignup = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  language: state.language
+  language: state.language,
 })
 
 export default connect(mapStateToProps)(CourseSignup);

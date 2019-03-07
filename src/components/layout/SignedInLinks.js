@@ -10,12 +10,12 @@ const SignedInLinks = (props) => {
   return (
     <div className='auth-background'>
       <div className='auth-tag-background'>
-        <a 
-          className='auth-tag' 
+        <button 
+          className='user-button' 
           onClick={props.signOut}
         >
           {lang.signout}
-        </a>
+        </button>
       </div>
     </div>
   )

@@ -3,6 +3,7 @@ export const authDe = {
   signup: 'Konto erstellen',
   signin: 'Anmelden',
   courseSignup: 'Für Kurs anmelden',
+  courseSignupButton: 'Anmelden',
   signout: 'Abmelden',
   email: 'Email',
   password: 'Passwort',
@@ -16,7 +17,10 @@ export const authDe = {
   phone: 'Telefon',
   cell: 'Handy Nummer',
   signinText: 'Haben Sie bereits ein Konto erstellt? Sie können sich hier ',
-  registerText: 'Wollen Sie ein Konto erstellen um zukünftig kein Anmeldungsformular mehr ausfüllen zu müssen? Sie können sich hier Registrieren'
+  registerText: 'Wollen Sie ein Konto erstellen um zukünftig kein Anmeldungsformular mehr ausfüllen zu müssen? Sie können sich hier Registrieren',
+  accountCreatedText: (name) => (`${name}, Sie haben ein Konto mit Positive Discipline Schweiz erstellt!`),
+  signupQuestion: (title) => (`Wollen Sie sich jetzt für den ${title} anmelden?`),
+  courseLink: 'Zurück zu Kurse'
 };
 
 export const authEn = {
@@ -24,6 +28,7 @@ export const authEn = {
   signup: 'Sign Up',
   signin: 'Sign In',
   courseSignup: 'Sign up for course',
+  courseSignupButton: 'Sign up',
   signout: 'Sign Out',
   email: 'Email',
   password: 'Password',
@@ -37,7 +42,10 @@ export const authEn = {
   phone: 'Phone',
   cell: 'Cell phone number',
   signinText: 'Already have an account? Click here to ',
-  registerText: 'By creating an account, you will not have to fill out the course registration for any future courses. You can sign up with the form below.'
+  registerText: 'By creating an account, you will not have to fill out the course registration for any future courses. You can sign up with the form below.',
+  accountCreatedText: (name) => (`${name}, you have created an account with Positive Discipline Schweiz!`),
+  signupQuestion: (title) => (`Would you like to sign up for ${title} now?`),
+  courseLink: 'Back to Courses'
 };
 
 export const navbarDe = {
