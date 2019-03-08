@@ -24,7 +24,9 @@ export const authDe = {
   confirmCourse: (title) => (`Wollen Sie sich für den ${title} anmelden?`),
   confirmButton: 'Ja, Bestätigen',
   declineButton: 'Nein, nicht anmelden',
-  confirmCancel: (title) => (`Wollen Sie sich wirklich vom ${title} abmelden?`)
+  confirmCancel: (title) => (`Wollen Sie sich wirklich vom ${title} abmelden?`),
+  PDlinks: 'Links zur Positiven Disziplin',
+  PDbooks: 'Positive Discipline Bücher und Info'
 };
 
 export const authEn = {
@@ -53,7 +55,9 @@ export const authEn = {
   confirmCourse: (title) => (`Would you like to sign up for ${title}?`),
   confirmButton: 'Yes, confirm',
   declineButton: "No, don't sign up",
-  confirmCancel: (title) => (`Do you really want to sign out of ${title}?`)
+  confirmCancel: (title) => (`Do you really want to sign out of ${title}?`),
+  PDlinks: 'Positive Discipline links:',
+  PDbooks: 'Positive Discipline books and information'
 };
 
 export const navbarDe = {

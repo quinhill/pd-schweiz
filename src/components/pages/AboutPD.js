@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { changeLang } from '../../store/actions/languageActions';
+import { authDe, authEn } from '../languages';
 
 const AboutPD = (props) => {
 
@@ -24,11 +25,33 @@ const AboutPD = (props) => {
 
     let content = props.language === 'DE' ? contentDe : contentEn;
 
+    const lang = props.language === 'DE' ? authDe : authEn;
 
   return (
     <div className='content-wrapper'>
       <div className='paragraph-wrapper'>
         {content}
+      </div>
+      <div className='pd-links'>
+        <h3>{lang.PDlinks}</h3>
+        <ul>
+          <li>
+            <a 
+              target="_blank" 
+              href='https://www.positivediscipline.org/'
+            >
+              Positive Discipline Association
+            </a>
+          </li>
+          <li>
+            <a 
+              target="_blank" 
+              href='https://www.positivediscipline.com/'
+            >
+              {lang.PDbooks}
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   )
