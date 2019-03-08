@@ -17,6 +17,7 @@ import CourseSignup from './components/courses/CourseSignup';
 import SignupMessage from './components/courses/SignupMessage';
 import SignupSuccess from './components/auth/SignupSuccess';
 import ConfirmCourse from './components/courses/ConfirmCourse';
+import ConfirmCancel from './components/courses/ConfirmCancel';
 
 class App extends Component {
   render() {
@@ -37,6 +38,7 @@ class App extends Component {
             <Route path='/signupmessage' component={SignupMessage} />
             <Route path='/signupsuccess' component={SignupSuccess} />
             <Route path='/confirmcourse' component={ConfirmCourse} />
+            <Route path='/confirmcancel' component={ConfirmCancel} />
           </Switch>
         </div>
       </BrowserRouter>

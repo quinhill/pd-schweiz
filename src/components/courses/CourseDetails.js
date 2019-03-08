@@ -26,8 +26,8 @@ const CourseDetails = (props) => {
 
   const handleCancel = (event) => {
     const { id } = event.target;
-    props.cancelCourse(id);
-    props.history.push('/signupmessage');
+    props.addCourse(id);
+    props.history.push('/confirmcancel');
   }
 
   if (course) {

@@ -23,7 +23,8 @@ export const authDe = {
   courseLink: 'Zurück zu Kurse',
   confirmCourse: (title) => (`Wollen Sie sich für den ${title} anmelden?`),
   confirmButton: 'Ja, Bestätigen',
-  declineButton: 'Nein, nicht anmelden'
+  declineButton: 'Nein, nicht anmelden',
+  confirmCancel: (title) => (`Wollen Sie sich wirklich vom ${title} abmelden?`)
 };
 
 export const authEn = {
@@ -51,7 +52,8 @@ export const authEn = {
   courseLink: 'Back to Courses',
   confirmCourse: (title) => (`Would you like to sign up for ${title}?`),
   confirmButton: 'Yes, confirm',
-  declineButton: "No, don't sign up"
+  declineButton: "No, don't sign up",
+  confirmCancel: (title) => (`Do you really want to sign out of ${title}?`)
 };
 
 export const navbarDe = {
