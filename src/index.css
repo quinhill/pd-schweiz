@@ -113,6 +113,7 @@ nav {
 
 .user-button {
   height: 70px;
+  width: 100px;
   font-family: 'Raleway', sans-serif;
   font-size: 100%;
   background: none;
@@ -120,6 +121,11 @@ nav {
   color: #ffffff;
   margin-left: 20px;
   cursor: pointer;
+  outline: none;
+}
+
+#signout-button:hover {
+  font-weight: 700;
 }
 
 .auth-background:hover .auth-button-wrapper {
@@ -288,6 +294,19 @@ nav {
 .course-signup-button:hover {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(187, 187, 187, 0.795), rgba(255, 255, 255, 0));
   cursor: pointer;
+}
+
+.confirm-wrapper {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.confirm-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* Auth Pages */

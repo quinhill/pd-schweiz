@@ -20,7 +20,10 @@ export const authDe = {
   registerText: 'Wollen Sie ein Konto erstellen um zukünftig kein Anmeldungsformular mehr ausfüllen zu müssen? Sie können sich hier Registrieren',
   accountCreatedText: (name) => (`${name}, Sie haben ein Konto mit Positive Discipline Schweiz erstellt!`),
   signupQuestion: (title) => (`Wollen Sie sich jetzt für den ${title} anmelden?`),
-  courseLink: 'Zurück zu Kurse'
+  courseLink: 'Zurück zu Kurse',
+  confirmCourse: (title) => (`Wollen Sie sich für den ${title} anmelden?`),
+  confirmButton: 'Ja, Bestätigen',
+  declineButton: 'Nein, nicht anmelden'
 };
 
 export const authEn = {
@@ -45,7 +48,10 @@ export const authEn = {
   registerText: 'By creating an account, you will not have to fill out the course registration for any future courses. You can sign up with the form below.',
   accountCreatedText: (name) => (`${name}, you have created an account with Positive Discipline Schweiz!`),
   signupQuestion: (title) => (`Would you like to sign up for ${title} now?`),
-  courseLink: 'Back to Courses'
+  courseLink: 'Back to Courses',
+  confirmCourse: (title) => (`Would you like to sign up for ${title}?`),
+  confirmButton: 'Yes, confirm',
+  declineButton: "No, don't sign up"
 };
 
 export const navbarDe = {

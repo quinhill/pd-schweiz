@@ -17,12 +17,11 @@ const CourseDetails = (props) => {
 
   const handleSignUp = (event) => {
     const { id } = event.target;
+    props.addCourse(id);
     if (!auth.uid) {
-      props.addCourse(id);
       return props.history.push('/coursesignup/' + id)
     }
-    props.signUpCourse(id);
-    props.history.push('/signupmessage');
+    props.history.push('/confirmcourse');
   }
 
   const handleCancel = (event) => {
