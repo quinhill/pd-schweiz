@@ -5,11 +5,12 @@ import SignedOutLinks from './SignedOutLinks';
 import { changeLang } from '../../store/actions/languageActions';
 import { Link } from 'react-router-dom';
 import { navbarDe, navbarEn } from '../languages';
+import { selectPage } from '../../store/actions/selectActions';
 
 
 const Navbar = (props) => {
 
-  const { auth, language } = props;
+  const { auth, language, selected } = props;
 
   const lang = language === 'DE' ? navbarDe : navbarEn;
 
@@ -19,6 +20,11 @@ const Navbar = (props) => {
 
   const makeGer = () => {
     props.changeLang('DE');
+  }
+
+  const select = (event) => {
+    const { name } = event.target;
+    props.selectPage(name);
   }
 
   return (
@@ -38,23 +44,55 @@ const Navbar = (props) => {
           </Link>
         </div>
         <div className='page-links'>
-          <div className='link-background'>
-            <Link className='link-tag' to='/courses'>
+          <div 
+            className='link-background'
+            id={selected === 'courses' ? 'selected' : 'unselected'}
+          >
+            <Link 
+              className='link-tag' 
+              to='/courses'
+              name='courses'
+              onClick={select}
+            >
               {lang.courses}
             </Link>
           </div>
-          <div className='link-background'>
-            <Link className='link-tag' to='/aboutpd'>
+          <div 
+            className='link-background'
+            id={selected === 'aboutpd' ? 'selected' : 'unselected'}
+          >
+            <Link 
+              className='link-tag' 
+              to='/aboutpd'
+              name='aboutpd'
+              onClick={select}
+            >
               {lang.aboutPD}
             </Link>
           </div>
-          <div className='link-background'>
-            <Link className='link-tag' to='/aboutkc'>
+          <div 
+            className='link-background'
+            id={selected === 'aboutkc' ? 'selected' : 'unselected'}
+          >
+            <Link 
+              className='link-tag' 
+              to='/aboutkc'
+              name='aboutkc'
+              onClick={select}
+            >
               {lang.aboutKC}
             </Link>
           </div>
-          <div className='link-background'>
-            <Link className='link-tag' to='/contact'>
+          <div 
+            className='link-background'
+            id={selected === 'contact' ? 'selected' : 'unselected'}
+          >
+            <Link 
+              className='link-tag' 
+              to='/contact'
+              name='contact'
+              onClick={select}
+            >
               {lang.contact}
             </Link>
           </div>
@@ -87,12 +125,14 @@ const mapStateToProps = (state) => {
   return {
     language: state.language,
     auth: state.firebase.auth,
-    profile: state.firebase.profile
+    profile: state.firebase.profile,
+    selected: state.selected
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  changeLang: (lang) => dispatch(changeLang(lang))
+  changeLang: (lang) => dispatch(changeLang(lang)),
+  selectPage: (page) => dispatch(selectPage(page))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

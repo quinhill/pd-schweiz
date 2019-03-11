@@ -55,7 +55,7 @@ const Courses = (props) => {
     <div className='course-page'>
       <div className='disclaimer-wrapper'>
         <h5 className='auth-title'>
-        <span className='description-tag'>For English Speakers:</span> All Positive Discipline courses are currently in German. If you are interested in attending a course taught in English, please contact KC directly. Information on how to reach KC can be found here 
+        <span className='description-tag'>For English Speakers:</span> All my scheduled Positive Discipline courses are currently in German. If you are interested in attending a course taught in English, please contact me. -KC 
         <Link 
           className='contact-link' 
           to='/contact'
