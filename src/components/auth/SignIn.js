@@ -22,7 +22,7 @@ class SignIn extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.signIn(this.state);
-    this.props.history.push('/')
+    this.props.history.push('/courses')
   }
 
   render() {
