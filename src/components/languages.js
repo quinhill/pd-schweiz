@@ -1,7 +1,7 @@
 export const authDe = {
   user: 'Benutzer',
   signup: 'Konto erstellen',
-  signin: 'Anmelden',
+  signin: 'Einloggen',
   courseSignup: 'Für Kurs anmelden',
   courseSignupButton: 'Anmelden',
   signout: 'Abmelden',
@@ -31,8 +31,8 @@ export const authDe = {
 
 export const authEn = {
   user: 'User',
-  signup: 'Sign Up',
-  signin: 'Sign In',
+  signup: 'Create Account',
+  signin: 'Log In',
   courseSignup: 'Sign up for course',
   courseSignupButton: 'Sign up',
   signout: 'Sign Out',

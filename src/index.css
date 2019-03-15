@@ -216,6 +216,7 @@ nav {
 .language-button {
   border: none;
   font-size: 15px;
+  font-weight: 100;
   color: #ffffff;
   background: #616060;
   outline: none;
@@ -223,6 +224,11 @@ nav {
 
 .language-button:hover {
   cursor: pointer;
+  font-weight: 700;
+}
+
+#lang-select {
+  font-weight: 700;
 }
 
 #language-divider {

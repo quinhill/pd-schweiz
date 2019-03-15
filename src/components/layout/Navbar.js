@@ -104,6 +104,7 @@ const Navbar = (props) => {
           <button
             onClick={makeEng}
             className='language-button'
+            id={language === 'DE' ? 'lang-null' : 'lang-select'}
           >
             EN
           </button>
@@ -111,6 +112,7 @@ const Navbar = (props) => {
           <button
             onClick={makeGer}
             className='language-button'
+            id={language === 'DE' ? 'lang-select' : 'lang-null'}
           >
             DE
           </button>
