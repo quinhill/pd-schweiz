@@ -98,3 +98,9 @@ export const addCurrentCourse = (course) => {
     dispatch({ type: 'ADD_CURRENT_COURSE', course })
   }
 }
+
+export const storeAnonData = (user) => {
+  return (dispatch) => {
+    dispatch({ type: 'STORE_ANON_DATA', user })
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { courseSignup } from '../../store/actions/courseActions';
+import { courseSignup, anonCourseSignup } from '../../store/actions/courseActions';
 import { authDe, authEn } from '../languages';
 import { withRouter } from 'react-router-dom';
 
@@ -13,7 +13,11 @@ const ConfirmCourse = (props) => {
   const confirmText = lang.confirmCourse(course.title);
 
   const confirm = () => {
-    props.courseSignup(course.id);
+    if (!course.user) {
+      props.courseSignup(course.id);
+    } else {
+      props.anonCourseSignup(course);
+    }
     history.push('/signupmessage');
   };
 
@@ -50,7 +54,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  courseSignup: (id) => dispatch(courseSignup(id))
+  courseSignup: (id) => dispatch(courseSignup(id)),
+  anonCourseSignup: (data) => dispatch(anonCourseSignup(data))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ConfirmCourse));

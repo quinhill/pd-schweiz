@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 import { courseSignupDe, courseSignupEn } from '../languages';
 import { withRouter } from 'react-router-dom';
 import { resetState } from '../../store/actions/courseActions';
+import { selectPage } from '../../store/actions/selectActions';
 
 const SignupMessage = (props) => {
 
   const lang = props.language === 'DE' ? courseSignupDe : courseSignupEn;
 
-  const resetState = () => {
+  const resetState = (event) => {
+    const { name } = event.target;
     props.resetState();
-    props.history.push('/');
+    props.selectPage(name);
+    props.history.push('/courses');
   }
 
   if (props.course.firstName) {
@@ -25,8 +28,9 @@ const SignupMessage = (props) => {
         <h5 className='auth-title'>{string}</h5>
         <button
           onClick={resetState}
+          name='courses'
         >
-          {lang.homelink}
+          {lang.courselink}
         </button>
       </div>
     )
@@ -52,7 +56,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  resetState: () => dispatch(resetState())
+  resetState: () => dispatch(resetState()),
+  selectPage: (page) => dispatch(selectPage(page))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignupMessage));
