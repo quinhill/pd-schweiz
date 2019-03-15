@@ -1,7 +1,7 @@
 export const authDe = {
   user: 'Benutzer',
   signup: 'Konto erstellen',
-  signin: 'Anmelden',
+  signin: 'Einloggen',
   courseSignup: 'Für Kurs anmelden',
   courseSignupButton: 'Anmelden',
   signout: 'Abmelden',
@@ -25,14 +25,16 @@ export const authDe = {
   confirmButton: 'Ja, Bestätigen',
   declineButton: 'Nein, nicht anmelden',
   confirmCancel: (title) => (`Wollen Sie sich wirklich vom ${title} abmelden?`),
+  declineConfirm: 'Ja, abmelden',
+  declineCancel: 'Nein, nicht abmelden',
   PDlinks: 'Links zur Positiven Disziplin',
   PDbooks: 'Positive Discipline Bücher und Info'
 };
 
 export const authEn = {
   user: 'User',
-  signup: 'Sign Up',
-  signin: 'Sign In',
+  signup: 'Create Account',
+  signin: 'Log In',
   courseSignup: 'Sign up for course',
   courseSignupButton: 'Sign up',
   signout: 'Sign Out',
@@ -55,7 +57,9 @@ export const authEn = {
   confirmCourse: (title) => (`Would you like to sign up for ${title}?`),
   confirmButton: 'Yes, confirm',
   declineButton: "No, don't sign up",
-  confirmCancel: (title) => (`Do you really want to sign out of ${title}?`),
+  confirmCancel: (title) => (`Are you sure you want to be removed from the list of participants for the ${title}?`),
+  declineConfirm: 'Yes, confirm',
+  declineCancel: "No, cancel",
   PDlinks: 'Positive Discipline links:',
   PDbooks: 'Positive Discipline books and information'
 };
@@ -75,15 +79,15 @@ export const navbarEn = {
 }
 
 export const courseSignupDe = {
-  signupSuccess: (name, course, date) => (`Hallo ${name}, Sie haben sich erfolgreich für den ${course} am ${date} angemeldet!`),
+  signupSuccess: (name, course, date) => (`${name}, Danke dass Sie sich für den ${course} am ${date} angemeldet haben! Ich freue mich Sie dort zu sehen! -KC`),
   loading: 'am laden...',
   courselink: 'Zurück zu Kurse',
-  cancelSuccess: (name, course) => (`Hallo ${name}, Sie haben sich erfolgreich vom ${course} abgemeldet.`)
+  cancelSuccess: (name, course, date) => (`Hallo ${name}, Sie haben sich erfolgreich vom ${course} am ${date} abgemeldet.`)
 }
 
 export const courseSignupEn = {
-  signupSuccess: (name, course, date) => (`Hi ${name}, you have been signed up for the ${course} on ${date}!`),
+  signupSuccess: (name, course, date) => (`${name}, thank you for signing up for ${course} on ${date}! I look forward to seeing you there! -KC`),
   loading: 'loading...',
   courselink: 'Back to Courses',
-  cancelSuccess: (name, course) => (`Hi ${name}, you have successful dropped out of the ${course}.`)
+  cancelSuccess: (name, course, date) => (`Hi ${name}, you have successfully been removed from the list of participants of the ${course} on ${date}.`)
 }

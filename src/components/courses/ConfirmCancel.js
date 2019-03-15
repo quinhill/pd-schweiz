@@ -36,7 +36,7 @@ const ConfirmCancel = (props) => {
             onClick={decline}
             className='course-signup-button'
           >
-            {lang.declineButton}
+            {lang.declineCancel}
           </button>
         </div>
       </div>

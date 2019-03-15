@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { changeLang } from '../../store/actions/languageActions';
 import { authDe, authEn } from '../languages';
 
 const AboutPD = (props) => {
