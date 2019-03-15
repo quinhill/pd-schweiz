@@ -10,7 +10,11 @@ import { selectPage } from '../../store/actions/selectActions';
 
 const Navbar = (props) => {
 
-  const { auth, language, selected } = props;
+  const { auth, language } = props;
+
+  const selected = window.location.pathname;
+
+  console.log(selected)
 
   const lang = language === 'DE' ? navbarDe : navbarEn;
 
@@ -46,12 +50,12 @@ const Navbar = (props) => {
         <div className='page-links'>
           <div 
             className='link-background'
-            id={selected === 'courses' ? 'selected' : 'unselected'}
+            id={selected === '/courses' ? 'selected' : 'unselected'}
           >
             <Link 
               className='link-tag' 
               to='/courses'
-              name='courses'
+              name='/courses'
               onClick={select}
             >
               {lang.courses}
@@ -59,7 +63,7 @@ const Navbar = (props) => {
           </div>
           <div 
             className='link-background'
-            id={selected === 'aboutpd' ? 'selected' : 'unselected'}
+            id={selected === '/aboutpd' ? 'selected' : 'unselected'}
           >
             <Link 
               className='link-tag' 
@@ -72,7 +76,7 @@ const Navbar = (props) => {
           </div>
           <div 
             className='link-background'
-            id={selected === 'aboutkc' ? 'selected' : 'unselected'}
+            id={selected === '/aboutkc' ? 'selected' : 'unselected'}
           >
             <Link 
               className='link-tag' 
@@ -85,7 +89,7 @@ const Navbar = (props) => {
           </div>
           <div 
             className='link-background'
-            id={selected === 'contact' ? 'selected' : 'unselected'}
+            id={selected === '/contact' ? 'selected' : 'unselected'}
           >
             <Link 
               className='link-tag' 
