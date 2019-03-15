@@ -4,7 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { authDe, authEn } from '../languages';
 import { Link } from 'react-router-dom';
 import { compose } from 'redux';
-import { anonCourseSignup } from '../../store/actions/courseActions';
+import { storeAnonData } from '../../store/actions/courseActions';
 import { withRouter } from 'react-router-dom';
 
 class AnonSignup extends Component {
@@ -25,17 +25,17 @@ class AnonSignup extends Component {
 
   handleSubmit = (event) => {
     const { 
-      id, 
-      anonCourseSignup,
+      storeAnonData,
       history
     } = this.props;
     event.preventDefault();
-    const data = {user: {...this.state}, id };
-    anonCourseSignup(data);
-    history.push('/signupmessage')
+    storeAnonData(this.state);
+    history.push('/confirmcourse')
   }
 
   render() {
+
+    const { language } = this.props;
     
     const {
       firstName,
@@ -49,7 +49,7 @@ class AnonSignup extends Component {
                      !email.length ||
                      cell.length < 7;
     
-    const lang = this.props.language === 'DE' ? authDe : authEn;
+    const lang = language === 'DE' ? authDe : authEn;
       
     return (
       <div className='auth-page'>
@@ -115,7 +115,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  anonCourseSignup: (data) => dispatch(anonCourseSignup(data))
+  storeAnonData: (data) => dispatch(storeAnonData(data))
 })
 
 export default withRouter(compose(

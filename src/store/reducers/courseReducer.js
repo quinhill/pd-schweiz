@@ -18,6 +18,8 @@ const courseReducer = (state = {}, action) => {
       return {}
     case 'ADD_CURRENT_COURSE':
       return action.course;
+    case 'STORE_ANON_DATA':
+      return {...state, user: action.user};
     default:
       return state;
   }
