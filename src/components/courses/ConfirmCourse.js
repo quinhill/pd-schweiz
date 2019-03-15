@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { courseSignup, anonCourseSignup } from '../../store/actions/courseActions';
+import { 
+  courseSignup, 
+  anonCourseSignup,
+  resetState
+} from '../../store/actions/courseActions';
 import { authDe, authEn } from '../languages';
 import { withRouter } from 'react-router-dom';
 
@@ -22,6 +26,7 @@ const ConfirmCourse = (props) => {
   };
 
   const decline = () => {
+    props.resetState();
     history.push('/courses');
   }
 
@@ -55,7 +60,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   courseSignup: (id) => dispatch(courseSignup(id)),
-  anonCourseSignup: (data) => dispatch(anonCourseSignup(data))
+  anonCourseSignup: (data) => dispatch(anonCourseSignup(data)),
+  resetState: () => dispatch(resetState())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ConfirmCourse));
