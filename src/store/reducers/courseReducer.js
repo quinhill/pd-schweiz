@@ -14,7 +14,7 @@ const courseReducer = (state = {}, action) => {
       }
     case 'COURSE_CANCEL_ERROR':
       return action.err.message;
-    case 'RESET_COURSE':
+    case 'RESET_STATE':
       return {}
     case 'ADD_CURRENT_COURSE':
       return action.course;

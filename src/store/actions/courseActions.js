@@ -89,7 +89,7 @@ export const anonCourseSignup = (data) => {
 
 export const resetState = () => {
   return (dispatch) => {
-    dispatch({ type: 'RESET_COURSE' })
+    dispatch({ type: 'RESET_STATE' })
   }
 }
 
