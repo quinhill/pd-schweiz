@@ -10,11 +10,19 @@ import { withRouter } from 'react-router-dom';
 
 const ConfirmCourse = (props) => {
 
-  const { course, language, history } = props;
+  const { 
+    course, 
+    language, 
+    history,
+    newUser,
+    name
+  } = props;
 
   const lang = language === 'DE'? authDe : authEn;
 
-  const confirmText = lang.confirmCourse(course.title);
+  const confirmText = newUser ? 
+    lang.newUserSignup(name, course.title) :
+    lang.confirmCourse(course.title);
 
   const confirm = () => {
     if (!course.user) {
@@ -55,7 +63,9 @@ const ConfirmCourse = (props) => {
 
 const mapStateToProps = (state) => ({
   course: state.course,
-  language: state.language
+  language: state.language,
+  name: state.firebase.profile.firstName,
+  newUser: state.newUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

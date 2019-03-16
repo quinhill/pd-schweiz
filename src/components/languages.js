@@ -28,7 +28,8 @@ export const authDe = {
   declineConfirm: 'Ja, abmelden',
   declineCancel: 'Nein, nicht abmelden',
   PDlinks: 'Links zur Positiven Disziplin',
-  PDbooks: 'Positive Discipline Bücher und Info'
+  PDbooks: 'Positive Discipline Bücher und Info',
+  newUserSignup: (name, title) => (`${name}, danke dass Sie ein Konto bei Positive Discipline Schweiz erstellt habe. Wollen Sie sich jetzt für den ${title} anmelden?`)
 };
 
 export const authEn = {
@@ -61,7 +62,8 @@ export const authEn = {
   declineConfirm: 'Yes, confirm',
   declineCancel: "No, cancel",
   PDlinks: 'Positive Discipline links:',
-  PDbooks: 'Positive Discipline books and information'
+  PDbooks: 'Positive Discipline books and information',
+  newUserSignup: (name, title) => (`${name}, Thank you for creating an account with Positive Discipline Schweiz. Would you like to proceed with signing up for the ${title}?`)
 };
 
 export const navbarDe = {

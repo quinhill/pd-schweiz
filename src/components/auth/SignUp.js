@@ -28,13 +28,22 @@ class SignUp extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.signUp(this.state);
-    this.props.history.push('/signupsuccess')
+    const {
+      course,
+      history,
+      signUp
+    } = this.props;
+    console.log(course.id)
+    signUp(this.state);
+    if (course.id) {
+      return history.push('/confirmcourse');
+    }
+    history.push('/signupsuccess')
   }
 
   render() {
 
-    const { language } = this.props;
+    const { language, course } = this.props;
 
     const {
       firstName,
@@ -158,10 +167,8 @@ const mapStateToProps = (state) => ({
   course: state.course
 })
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signUp: (newUser) => dispatch(signUp(newUser))
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  signUp: (newUser) => dispatch(signUp(newUser))
+})
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));
