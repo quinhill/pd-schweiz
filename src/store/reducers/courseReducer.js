@@ -6,14 +6,14 @@ const courseReducer = (state = {}, action) => {
         cancel: false
       }
     case 'COURSE_SIGNUP_ERROR':
-      return action.err.message;
+      return action.message;
     case 'COURSE_CANCEL_SUCCESS':
       return {
         ...action.course,
         cancel: true
       }
     case 'COURSE_CANCEL_ERROR':
-      return action.err.message;
+      return action.message;
     case 'RESET_STATE':
       return {}
     case 'ADD_CURRENT_COURSE':

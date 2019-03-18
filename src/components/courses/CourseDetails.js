@@ -42,7 +42,7 @@ const CourseDetails = (props) => {
           {course.location}
         </p>
         <p className='card-p'>
-          <p className='description-tag'>Beschreibung: </p>
+          <span className='description-tag'>Beschreibung: </span>
           {course.description}
         </p>
         <p className='card-p'>

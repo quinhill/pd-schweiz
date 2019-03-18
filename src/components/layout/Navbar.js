@@ -25,7 +25,6 @@ const Navbar = (props) => {
       <div className='navbar'>
         <div className='home-wrapper'>
           <Link
-            exact
             to='/'
             id='home-link'
             className='link-tag'

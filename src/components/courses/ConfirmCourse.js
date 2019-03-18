@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { 
+import { resetState } from '../../store/actions';
+import {
   courseSignup, 
-  anonCourseSignup,
-  resetState
-} from '../../store/actions/courseActions';
+  anonCourseSignup
+} from '../../store/thunks/courseThunks';
 import { authDe, authEn } from '../languages';
 import { withRouter } from 'react-router-dom';
 
@@ -20,9 +20,9 @@ const ConfirmCourse = (props) => {
 
   const lang = language === 'DE'? authDe : authEn;
 
-  const confirmText = newUser ? 
-    lang.newUserSignup(name, course.title) :
-    lang.confirmCourse(course.title);
+  const newAccount = newUser ? lang.newUserSignup(name) : null;
+
+  const confirmText = lang.confirmCourse(course.title);
 
   const confirm = () => {
     if (!course.user) {
@@ -41,6 +41,11 @@ const ConfirmCourse = (props) => {
   return (
     <div className='signedup-page'>
       <div className='confirm-wrapper'>
+        {
+          newAccount ? 
+            <h5 className='auth-title'>{newAccount}</h5> : 
+            null 
+        }
         <h5 className='auth-title'>{confirmText}</h5>
         <div className='confirm-button-wrapper'>
           <button

@@ -2,6 +2,8 @@ import authReducer from './authReducer';
 import langReducer from './langReducer';
 import courseReducer from './courseReducer';
 import newUser from './userReducer';
+import isLoading from './isLoadingReducer';
+import hasErrored from './hasErroredReducer';
 import { combineReducers } from 'redux';
 import { firestoreReducer } from 'redux-firestore';
 import { firebaseReducer } from 'react-redux-firebase';
@@ -11,6 +13,8 @@ const rootReducer = combineReducers({
   language: langReducer,
   course: courseReducer,
   newUser,
+  isLoading,
+  hasErrored,
   firestore: firestoreReducer,
   firebase: firebaseReducer
 })

@@ -6,8 +6,9 @@ import CourseDetails from '../courses/CourseDetails';
 import { 
   courseSignup, 
   courseCancel,
-  addCurrentCourse
-} from '../../store/actions/courseActions';
+} from '../../store/thunks/courseThunks';
+import { addCurrentCourse } from '../../store/actions';
+
 import { Link } from 'react-router-dom';
 
 const Courses = (props) => {

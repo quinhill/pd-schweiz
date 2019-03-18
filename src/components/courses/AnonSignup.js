@@ -4,7 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { authDe, authEn } from '../languages';
 import { Link } from 'react-router-dom';
 import { compose } from 'redux';
-import { storeAnonData } from '../../store/actions/courseActions';
+import { storeAnonData } from '../../store/actions';
 import { withRouter } from 'react-router-dom';
 
 class AnonSignup extends Component {

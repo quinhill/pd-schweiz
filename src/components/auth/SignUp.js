@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signUp } from '../../store/actions/authActions';
+import { signUp } from '../../store/thunks/authThunks';
 import { authDe, authEn } from '../languages';
 import { withRouter } from 'react-router-dom';
 
