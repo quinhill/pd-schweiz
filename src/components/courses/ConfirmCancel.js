@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { courseCancel } from '../../store/actions/courseActions';
+import { courseCancel } from '../../store/thunks/courseThunks';
 import { authDe, authEn } from '../languages';
 import { withRouter } from 'react-router-dom';
 

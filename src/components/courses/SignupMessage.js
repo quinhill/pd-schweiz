@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { courseSignupDe, courseSignupEn } from '../languages';
 import { withRouter } from 'react-router-dom';
-import { resetState } from '../../store/actions/courseActions';
+import { resetState } from '../../store/actions';
 
 const SignupMessage = (props) => {
 

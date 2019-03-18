@@ -93,13 +93,14 @@ nav {
 
 .link-tag {
   font-weight: 700;
-  width: 250px;
+  width: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   color: #616060;
   height: 100%;
+  text-align: center;
 }
 
 .link-tag:hover {
@@ -266,7 +267,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .card-p {
@@ -274,7 +275,7 @@ nav {
 }
 
 .description-tag {
-  font-weight: 700;
+  font-weight: 900;
   color: #323235;
 }
 
