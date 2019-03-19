@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { courseSignupDe, courseSignupEn } from '../languages';
+import { german, english } from '../languages';
 import { withRouter } from 'react-router-dom';
 import { resetState } from '../../store/actions';
 
 const SignupMessage = (props) => {
 
-  const lang = props.language === 'DE' ? courseSignupDe : courseSignupEn;
+  const lang = props.language === 'DE' ? german : english;
 
   const resetState = () => {
     props.resetState();

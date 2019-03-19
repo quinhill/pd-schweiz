@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CourseList from '../courses/CourseList';
+// import CourseList from '../courses/CourseList';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
@@ -7,12 +7,12 @@ import { compose } from 'redux';
 class Home extends Component {
   render() {
 
-    const { courses } = this.props;
+    // const { courses } = this.props;
 
     return (
       <div className='wrapper'>
         <div className='courses-wrapper'>
-          <CourseList courses={courses} />
+          {/* <CourseList courses={courses} /> */}
         </div>
       </div>
     )

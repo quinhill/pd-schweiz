@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { Link } from 'react-router-dom';
 
 const SignupSuccess = (props) => {
@@ -10,7 +10,7 @@ const SignupSuccess = (props) => {
     language
   } = props;
 
-  const lang = language === 'DE' ? authDe : authEn;
+  const lang = language === 'DE' ? german : english;
 
   const welcomeText = lang.accountCreatedText(profile.firstName);
 

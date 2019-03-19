@@ -5,7 +5,7 @@ import {
   courseSignup, 
   anonCourseSignup
 } from '../../store/thunks/courseThunks';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { withRouter } from 'react-router-dom';
 
 const ConfirmCourse = (props) => {
@@ -18,7 +18,7 @@ const ConfirmCourse = (props) => {
     name
   } = props;
 
-  const lang = language === 'DE'? authDe : authEn;
+  const lang = language === 'DE'? german : english;
 
   const newAccount = newUser ? lang.newUserSignup(name) : null;
 

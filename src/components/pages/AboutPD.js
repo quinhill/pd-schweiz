@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 
 const AboutPD = (props) => {
 
@@ -24,7 +24,7 @@ const AboutPD = (props) => {
 
     let content = props.language === 'DE' ? contentDe : contentEn;
 
-    const lang = props.language === 'DE' ? authDe : authEn;
+    const lang = props.language === 'DE' ? german : english;
 
   return (
     <div className='content-wrapper'>

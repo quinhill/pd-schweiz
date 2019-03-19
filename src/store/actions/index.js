@@ -66,3 +66,8 @@ export const storeAnonData = (user) => ({
   type: 'STORE_ANON_DATA',
   user
 });
+
+export const changeLang = (lang) => ({
+  type: 'CHANGE_LANG',
+  lang
+})

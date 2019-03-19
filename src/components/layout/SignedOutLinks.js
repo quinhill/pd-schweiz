@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { connect } from 'react-redux';
 
 const SignedInLinks = (props) => {
 
-  const lang = props.language === 'DE' ? authDe : authEn;
+  const lang = props.language === 'DE' ? german : english;
 
   return (
     <div className='auth-background'>

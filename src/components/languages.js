@@ -1,4 +1,4 @@
-export const authDe = {
+export const german = {
   user: 'Benutzer',
   signup: 'Konto erstellen',
   signin: 'Einloggen',
@@ -27,12 +27,20 @@ export const authDe = {
   confirmCancel: (title) => (`Wollen Sie sich wirklich vom ${title} abmelden?`),
   declineConfirm: 'Ja, abmelden',
   declineCancel: 'Nein, nicht abmelden',
-  PDlinks: 'Links zur Positiven Disziplin:',
+  PDlinks: 'Links zur Positiven Disziplin',
   PDbooks: 'Positive Discipline Bücher und Info',
-  newUserSignup: (name, title) => (`${name}, danke dass Sie ein Konto bei Positive Discipline Schweiz erstellt haben.`)
+  newUserSignup: (name, title) => (`${name}, danke dass Sie ein Konto bei Positive Discipline Schweiz erstellt habe. Wollen Sie sich jetzt für den ${title} anmelden?`),
+  courses: 'Kurse',
+  aboutPD: 'Über Positive Disziplin',
+  aboutKC: 'Über KC',
+  contact: 'Kontakt',
+  signupSuccess: (name, course, date) => (`${name}, Danke dass Sie sich für den ${course} am ${date} angemeldet haben! Ich freue mich Sie dort zu sehen! -KC`),
+  loading: 'am laden...',
+  courselink: 'Zurück zu Kurse',
+  cancelSuccess: (name, course, date) => (`Hallo ${name}, Sie haben sich erfolgreich vom ${course} am ${date} abgemeldet.`)
 };
 
-export const authEn = {
+export const english = {
   user: 'User',
   signup: 'Create Account',
   signin: 'Log In',
@@ -63,33 +71,13 @@ export const authEn = {
   declineCancel: "No, cancel",
   PDlinks: 'Positive Discipline links:',
   PDbooks: 'Positive Discipline books and information',
-  newUserSignup: (name, title) => (`${name}, Thank you for creating an account with Positive Discipline Schweiz.`)
-};
-
-export const navbarDe = {
-  courses: 'Kurse',
-  aboutPD: 'Über Positive Disziplin',
-  aboutKC: 'Über KC',
-  contact: 'Kontakt'
-}
-
-export const navbarEn = {
+  newUserSignup: (name, title) => (`${name}, Thank you for creating an account with Positive Discipline Schweiz. Would you like to proceed with signing up for the ${title}?`),
   courses: 'Courses',
   aboutPD: 'About Positive Discipline',
   aboutKC: 'About KC',
-  contact: 'Contact'
-}
-
-export const courseSignupDe = {
-  signupSuccess: (name, course, date) => (`${name}, Danke dass Sie sich für den ${course} am ${date} angemeldet haben! Ich freue mich Sie dort zu sehen! -KC`),
-  loading: 'am laden...',
-  courselink: 'Zurück zu Kurse',
-  cancelSuccess: (name, course, date) => (`Hallo ${name}, Sie haben sich erfolgreich vom ${course} am ${date} abgemeldet.`)
-}
-
-export const courseSignupEn = {
+  contact: 'Contact',
   signupSuccess: (name, course, date) => (`${name}, thank you for signing up for ${course} on ${date}! I look forward to seeing you there! -KC`),
   loading: 'loading...',
   courselink: 'Back to Courses',
   cancelSuccess: (name, course, date) => (`Hi ${name}, you have successfully been removed from the list of participants of the ${course} on ${date}.`)
-}
+};

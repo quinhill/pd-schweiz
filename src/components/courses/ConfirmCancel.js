@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { courseCancel } from '../../store/thunks/courseThunks';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { withRouter } from 'react-router-dom';
 
 const ConfirmCancel = (props) => {
 
   const { course, language, history } = props;
 
-  const lang = language === 'DE'? authDe : authEn;
+  const lang = language === 'DE'? german : english;
 
   const confirmText = lang.confirmCancel(course.title);
 

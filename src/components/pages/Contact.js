@@ -1,10 +1,10 @@
 import React from 'react';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { connect } from 'react-redux';
 
 const Contact = (props) => {
 
-  const lang = props.language === 'DE' ? authDe : authEn;
+  const lang = props.language === 'DE' ? german : english;
 
   return (
     <div className='content-wrapper'>

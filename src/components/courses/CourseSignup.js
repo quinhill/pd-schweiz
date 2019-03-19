@@ -1,13 +1,13 @@
 import React from 'react';
 import AnonSignup from './AnonSignup';
 import SignUp from '../auth/SignUp';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { connect } from 'react-redux';
 
 const CourseSignup = (props) => {
   const id = props.match.params.id;
 
-  const lang = props.language === 'DE' ? authDe : authEn;
+  const lang = props.language === 'DE' ? german : english;
 
   return(
     <div className='content-wrapper'>

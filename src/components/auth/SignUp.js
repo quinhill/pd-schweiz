@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/thunks/authThunks';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { withRouter } from 'react-router-dom';
 
 class SignUp extends Component {
@@ -43,7 +43,7 @@ class SignUp extends Component {
 
   render() {
 
-    const { language, course } = this.props;
+    const { language } = this.props;
 
     const {
       firstName,
@@ -63,7 +63,7 @@ class SignUp extends Component {
                       password.length < 6 ||
                       password !== passwordTwo;
 
-    const lang = language === 'DE' ? authDe : authEn;
+    const lang = language === 'DE' ? german : english;
 
     return (
       <div className='auth-page'>
