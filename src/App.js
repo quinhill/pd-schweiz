@@ -25,6 +25,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
+          <div className='body'>
           <Switch>
             <Route exact path='/' component={AboutPD} />
             <Route path='/contact' component={Contact} />
@@ -40,6 +41,7 @@ class App extends Component {
             <Route path='/confirmcourse' component={ConfirmCourse} />
             <Route path='/confirmcancel' component={ConfirmCancel} />
           </Switch>
+          </div>
         </div>
       </BrowserRouter>
     );

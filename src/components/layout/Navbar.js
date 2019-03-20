@@ -9,7 +9,7 @@ import { german, english } from '../languages';
 
 const Navbar = (props) => {
 
-  const { auth, language, isLoading } = props;
+  const { auth, language } = props;
   const lang = language === 'DE' ? german : english;
 
   const makeEng = () => {
@@ -20,11 +20,6 @@ const Navbar = (props) => {
     props.changeLang('DE');
   }
 
-  if (isLoading) {
-    return (
-      <p>{lang.loading}</p>
-    )
-  }
   return (
     <nav>
       <div className='navbar'>
@@ -95,7 +90,6 @@ const Navbar = (props) => {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
-    isLoading: state.isLoading,
     language: state.language,
     auth: state.firebase.auth,
     profile: state.firebase.profile

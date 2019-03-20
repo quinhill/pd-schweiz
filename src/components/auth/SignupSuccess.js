@@ -4,7 +4,9 @@ import { german, english } from '../languages';
 import { Link } from 'react-router-dom';
 
 const SignupSuccess = (props) => {
+  
   const { 
+    isLoading,
     course, 
     profile,
     language
@@ -21,6 +23,12 @@ const SignupSuccess = (props) => {
     </div> :
     null;
 
+  if (isLoading) {
+    return (
+      <p>{lang.loading}</p>
+    )
+  }
+
   return (
     <div className='signedup-page'>
       <h5 className='auth-title'>{welcomeText}</h5>
@@ -32,6 +40,7 @@ const SignupSuccess = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
   language: state.language,
   course: state.course,
   profile: state.firebase.profile

@@ -13,6 +13,12 @@ const SignupMessage = (props) => {
     props.history.push('/courses');
   }
 
+  if (props.isLoading) {
+    return (
+      <p>{lang.loading}</p>
+    )
+  }
+
   if (props.course.firstName) {
     const { firstName, title, date} = props.course;
 
@@ -47,6 +53,7 @@ const SignupMessage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
   language: state.language,
   course: state.course,
   cancel: state.cancel
