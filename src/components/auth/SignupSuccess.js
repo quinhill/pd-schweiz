@@ -1,16 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { Link } from 'react-router-dom';
 
 const SignupSuccess = (props) => {
+  
   const { 
+    isLoading,
     course, 
     profile,
     language
   } = props;
 
-  const lang = language === 'DE' ? authDe : authEn;
+  const lang = language === 'DE' ? german : english;
 
   const welcomeText = lang.accountCreatedText(profile.firstName);
 
@@ -20,6 +22,12 @@ const SignupSuccess = (props) => {
       <Link to='/courses'>{lang.courseLink}</Link>
     </div> :
     null;
+
+  if (isLoading) {
+    return (
+      <p>{lang.loading}</p>
+    )
+  }
 
   return (
     <div className='signedup-page'>
@@ -32,6 +40,7 @@ const SignupSuccess = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
   language: state.language,
   course: state.course,
   profile: state.firebase.profile

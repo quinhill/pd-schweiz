@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/thunks/authThunks';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 
 const SignedInLinks = (props) => {
 
-  const lang = props.language === 'DE' ? authDe : authEn;
+  const lang = props.language === 'DE' ? german : english;
 
   return (
     <div className='auth-background'>

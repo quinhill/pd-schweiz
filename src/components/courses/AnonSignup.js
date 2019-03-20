@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { Link } from 'react-router-dom';
 import { compose } from 'redux';
 import { storeAnonData } from '../../store/actions';
@@ -49,7 +49,7 @@ class AnonSignup extends Component {
                      !email.length ||
                      cell.length < 7;
     
-    const lang = language === 'DE' ? authDe : authEn;
+    const lang = language === 'DE' ? german : english;
       
     return (
       <div className='auth-page'>

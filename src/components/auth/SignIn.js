@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/thunks/authThunks';
 import { withRouter } from 'react-router-dom';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 
 class SignIn extends Component {
   constructor() {
@@ -29,7 +29,7 @@ class SignIn extends Component {
 
     const { authError, language } = this.props;
 
-    const lang = language === 'DE' ? authDe : authEn;
+    const lang = language === 'DE' ? german : english;
 
     return (
       <div className='auth-page'>

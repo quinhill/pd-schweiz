@@ -18,14 +18,14 @@ export const signIn = (credentials) => {
         credentials.email,
         credentials.password
       )
-      if (!response.ok) {
-        throw Error(response.statusText)
+      if (!response.user) {
+        throw Error()
       }
-      dispatch(isLoading(false));
       await dispatch(loginSuccess());
+      dispatch(isLoading(false));
     }
     catch (error) {
-      dispatch(hasErrored(error.message))
+      dispatch(hasErrored(error))
     }
   }
 }
@@ -36,10 +36,7 @@ export const signOut = () => {
 
     try {
       dispatch(isLoading(true))
-      const response = await firebase.auth().signOut()
-      if (!response.ok) {
-        throw Error(response.statusText)
-      }
+      await firebase.auth().signOut()
       dispatch(isLoading(false))
       await dispatch(signoutSuccess())
     }
@@ -60,11 +57,11 @@ export const signUp = (newUser) => {
         newUser.email,
         newUser.password
       )
-      if (!response.ok) {
-        throw Error(response.statusText)
+      if (!response.user) {
+        throw Error(response)
       }
-      const user = await firestore.collection('users').doc(
-        response.user.uid
+      await firestore.collection('users').doc(
+          response.user.uid
         ).set({
           firstName: newUser.firstName,
           lastName: newUser.lastName,
@@ -72,16 +69,13 @@ export const signUp = (newUser) => {
           address: newUser.address,
           uid: response.user.uid,
           courses: []
-        })
-      if (!user.ok) {
-        throw Error(newUser.statusText)
-      }
-      dispatch(isLoading(false));
+        });
       await dispatch(signupSuccess());
       await dispatch(newUserCourse());
+      dispatch(isLoading(false));
     }
     catch(err) {
-      dispatch(signupError(err.message))
+      dispatch(signupError(err))
     }
   }
 };

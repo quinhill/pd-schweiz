@@ -5,12 +5,13 @@ import {
   courseSignup, 
   anonCourseSignup
 } from '../../store/thunks/courseThunks';
-import { authDe, authEn } from '../languages';
+import { german, english } from '../languages';
 import { withRouter } from 'react-router-dom';
 
 const ConfirmCourse = (props) => {
 
   const { 
+    isLoading,
     course, 
     language, 
     history,
@@ -18,7 +19,7 @@ const ConfirmCourse = (props) => {
     name
   } = props;
 
-  const lang = language === 'DE'? authDe : authEn;
+  const lang = language === 'DE'? german : english;
 
   const newAccount = newUser ? lang.newUserSignup(name) : null;
 
@@ -36,6 +37,12 @@ const ConfirmCourse = (props) => {
   const decline = () => {
     props.resetState();
     history.push('/courses');
+  }
+
+  if (isLoading) {
+    return (
+      <p>{lang.loading}</p>
+    )
   }
 
   return (
@@ -67,6 +74,7 @@ const ConfirmCourse = (props) => {
 }
 
 const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
   course: state.course,
   language: state.language,
   name: state.firebase.profile.firstName,

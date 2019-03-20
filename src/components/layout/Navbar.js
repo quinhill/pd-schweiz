@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SignedInNavLinks from './SignedInLinks';
 import SignedOutNavLinks from './SignedOutLinks';
-import { changeLang } from '../../store/actions/languageActions';
+import { changeLang } from '../../store/actions';
 import { NavLink, Link, withRouter } from 'react-router-dom';
-import { navbarDe, navbarEn } from '../languages';
+import { german, english } from '../languages';
 
 
 const Navbar = (props) => {
 
   const { auth, language } = props;
-  const lang = language === 'DE' ? navbarDe : navbarEn;
+  const lang = language === 'DE' ? german : english;
 
   const makeEng = () => {
     props.changeLang('EN');

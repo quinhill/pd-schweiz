@@ -1,16 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { courseSignupDe, courseSignupEn } from '../languages';
+import { german, english } from '../languages';
 import { withRouter } from 'react-router-dom';
 import { resetState } from '../../store/actions';
 
 const SignupMessage = (props) => {
 
-  const lang = props.language === 'DE' ? courseSignupDe : courseSignupEn;
+  const lang = props.language === 'DE' ? german : english;
 
   const resetState = () => {
     props.resetState();
     props.history.push('/courses');
+  }
+
+  if (props.isLoading) {
+    return (
+      <p>{lang.loading}</p>
+    )
   }
 
   if (props.course.firstName) {
@@ -47,6 +53,7 @@ const SignupMessage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
   language: state.language,
   course: state.course,
   cancel: state.cancel
