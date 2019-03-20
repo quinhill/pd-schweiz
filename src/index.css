@@ -107,7 +107,7 @@ nav {
   color: rgb(180, 65, 75);
   height: 100%;
   text-align: center;
-  transition: 0.7s;
+  transition: background 0.7s ease-in-out;
 }
 
 .link-tag:hover {
