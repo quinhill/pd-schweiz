@@ -5,7 +5,6 @@ import {
   courseCancelSuccess,
   courseCancelError,
 } from '../actions';
-import { request } from 'http';
 
 
 export const courseSignup = (id) => {
