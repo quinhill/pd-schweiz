@@ -5,6 +5,7 @@ import {
   courseCancelSuccess,
   courseCancelError,
 } from '../actions';
+import { request } from 'http';
 
 
 export const courseSignup = (id) => {
@@ -23,24 +24,18 @@ export const courseSignup = (id) => {
 
     try {
       dispatch(isLoading(true));
-      const response = await firestore.collection(
+      await firestore.collection(
         'courses'
         ).doc(id).set({
         ...course,
         participants
       })
-      if (!response.ok) {
-        throw Error(response.statusText)
-      }
-      const responseTwo = await firestore.collection(
+      await firestore.collection(
         'users'
         ).doc(uid).set({
         ...profile,
         courses
       })
-      if (!responseTwo.ok) {
-        throw Error(responseTwo.statusText)
-      }
       await dispatch(courseSignupSuccess({
         ...profile, 
         ...course
@@ -72,20 +67,14 @@ export const courseCancel = (id) => {
 
     try {
       dispatch(isLoading(true));
-      const response = await firestore.collection('courses').doc(id).set({
+      await firestore.collection('courses').doc(id).set({
         ...course,
         participants
       })
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const responseTwo = await firestore.collection('users').doc(uid).set({
+      await firestore.collection('users').doc(uid).set({
         ...profile,
         courses
       })
-      if (!responseTwo.ok) {
-        throw Error(responseTwo.statusText)
-      }
       await dispatch(courseCancelSuccess(
         {...profile, ...course})
       );
@@ -106,15 +95,12 @@ export const anonCourseSignup = (data) => {
     
     try {
       dispatch(isLoading(true));
-      const response = await firestore.collection(
+      await firestore.collection(
         'courses'
         ).doc(data.id).set({
         ...course,
         participants: [...participants, data.user]
       })
-      if (!response.ok) {
-        throw Error(response.statusText)
-      }
       await dispatch(courseSignupSuccess(
         { ...data.user, ...course}
       ))
