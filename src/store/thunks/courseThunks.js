@@ -17,18 +17,10 @@ export const courseSignup = (id) => {
     courses = [...courses, id];
 
     const course = getState().firestore.data.courses[id];
-    let participants = getState().firestore.data.courses[id].participants;
-
-    participants = [...participants, profile];
 
     try {
       dispatch(isLoading(true));
-      await firestore.collection(
-        'courses'
-        ).doc(id).set({
-        ...course,
-        participants
-      })
+      await firestore.collection('courses').doc(id).collection('participants').doc(uid).set(profile);
       await firestore.collection(
         'users'
         ).doc(uid).set({
@@ -60,16 +52,12 @@ export const courseCancel = (id) => {
     courses = courses.filter(courseId => courseId !== id);
     
     const course = getState().firestore.data.courses[id];
-    let participants = getState().firestore.data.courses[id].participants;
-    
-    participants = participants.filter(participant => participant.uid !== uid);
 
     try {
       dispatch(isLoading(true));
-      await firestore.collection('courses').doc(id).set({
-        ...course,
-        participants
-      })
+      await firestore.collection('courses').doc(id).collection(
+        'participants'
+      ).doc(uid).delete();
       await firestore.collection('users').doc(uid).set({
         ...profile,
         courses
@@ -90,16 +78,12 @@ export const anonCourseSignup = (data) => {
     const firestore = getFirestore();
     
     const course = getState().firestore.data.courses[data.id];
-    const participants = getState().firestore.data.courses[data.id].participants;
     
     try {
       dispatch(isLoading(true));
       await firestore.collection(
         'courses'
-        ).doc(data.id).set({
-        ...course,
-        participants: [...participants, data.user]
-      })
+        ).doc(data.id).collection('participants').add({ ...data.user})
       await dispatch(courseSignupSuccess(
         { ...data.user, ...course}
       ))
