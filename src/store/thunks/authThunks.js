@@ -57,9 +57,6 @@ export const signUp = (newUser) => {
         newUser.email,
         newUser.password
       )
-      if (!response.user) {
-        throw Error(response)
-      }
       await firestore.collection('users').doc(
           response.user.uid
         ).set({
