@@ -1,5 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
+
 
 const CourseDetails = (props) => {
 
@@ -8,6 +10,8 @@ const CourseDetails = (props) => {
     userCourses,
     auth
   } = props;
+
+  const date = moment(course.date.toDate()).format('dddd, LL');
 
   let signedUp;
   if (userCourses) {
@@ -35,16 +39,20 @@ const CourseDetails = (props) => {
       <div className="course-wrapper">
         <div className="card-title">
           <h3 className="card-title">{course.title}</h3>
-          <p>{course.date}</p>
+          <p>{date}</p>
         </div>
         <p className='card-p'>
           <span className='description-tag'>Ort: </span>
           {course.location}
         </p>
-        <p className='card-p'>
-          <span className='description-tag'>Beschreibung: </span>
-          {course.description}
-        </p>
+        {
+          course.description ?
+            <p className='card-p'>
+              <span className='description-tag'>Beschreibung: </span>
+              {course.description}
+            </p> :
+            null
+        }
         <p className='card-p'>
           <span className='description-tag'>Preis: </span>
           {course.cost}
