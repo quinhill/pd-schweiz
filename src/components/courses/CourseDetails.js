@@ -45,6 +45,10 @@ const CourseDetails = (props) => {
           <span className='description-tag'>Ort: </span>
           {course.location}
         </p>
+        <p className='card-p'>
+          <span className='description-tag'>Zeit: </span>
+          {course.time}
+        </p>
         {
           course.description ?
             <p className='card-p'>
