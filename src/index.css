@@ -556,4 +556,9 @@ li {
   .auth-language-wrapper {
     display: none;
   }
+
+  .paragraph-wrapper {
+    position: relative;
+    top: 270px;
+  }
 }
