@@ -25,7 +25,7 @@ const AboutKC = (props) => {
 
 
   return (
-    <div className='content-wrapper'>
+    <div className='content-wrapper' id='kc-image'>
       <div className='paragraph-wrapper'>
         {content}
       </div>

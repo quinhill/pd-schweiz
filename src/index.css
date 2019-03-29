@@ -28,9 +28,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
-body {
-  line-height: 1;
-}
 ol, ul {
   list-style: none;
 }
@@ -48,6 +45,7 @@ table {
 }
 
 body {
+  line-height: 1;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -67,9 +65,8 @@ p {
 }
 
 .body {
-  padding-top: 10px;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 70px);
   background-image: radial-gradient(circle, white 80%, red 200%);
 }
 
@@ -82,8 +79,10 @@ nav {
 
 .navbar {
   width: 100%;
-  display: grid;
-  grid-template-columns: 30% 70%;
+}
+
+.bars-button {
+  display: none;
 }
 
 .link-wrapper {
@@ -93,6 +92,7 @@ nav {
 }
 
 .page-links {
+  height: 100%;
   display: flex;
   justify-content: space-around;
 }
@@ -115,7 +115,6 @@ nav {
   background: rgb(180, 65, 75);
   cursor: pointer;
   transition: 1s;
-  font-weight: 800;
 }
 
 .link-tag.active {
@@ -262,6 +261,7 @@ nav {
 
 .course-page {
   max-height: calc(100vh - 80px);
+  padding-top: 10px;
   overflow-y: auto;
   width: 100%;
   display: flex;
@@ -371,15 +371,36 @@ label {
 /* Page Content */
 
 .content-wrapper {
+  padding-left: 15%;
   width: 100%;
-  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  height: calc(100vh - 70px);
+  background-position-x: -30vw;
+  background-repeat: no-repeat;
+  overflow-y: scroll;
+}
+
+#kc-image {
+  background-image: url('/KC.png');
+  position: relative;
+  background-position-y: 0;
+}
+
+#lynn-image {
+  background-image: url('/Lynn-Lott.jpg');
+  background-size: contain;
+  background-position-x: -20vw;
 }
 
 .paragraph-wrapper {
-  width: 80%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
 }
 
 .pd-links {
@@ -440,8 +461,99 @@ li {
   justify-content: space-evenly;
 }
 
-/* @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media only screen and (max-width: 1400px) {
+  #lynn-image {
+    background-position-x: -23vw;
   }
-} */
+}
+
+@media only screen and (max-width: 1200px) {
+  #kc-image {
+    background-position-x: -35vw;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .content-wrapper {
+    padding: 0;
+  }
+
+  .paragraph-wrapper {
+    width: 80%;
+  }
+
+  #lynn-image {
+    background-image: none;
+  }
+
+  #kc-image {
+    background-image: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  .bars-button {
+    display: block;
+    float: right;
+    height: 70px;
+    width: 70px;
+    background: white;
+    background-image: url('/menu-red.svg');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+  }
+
+  .bars-button:hover {
+    background: rgb(180, 65, 75);
+    background-image: url('/menu-white.svg');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .navbar.responsive {
+    display: flex;
+    position: absolute;
+    top: 72px;
+    width: 100%;
+    background: white;
+    z-index: 2;
+  }
+
+  .page-links.responsive {
+    z-index: 2;
+    display: block;
+    width: 100%;
+  }
+
+  .link-tag.responsive {
+    width: 100%;
+    height: 30px;
+    background: white;
+  }
+
+  .link-tag.responsive.active {
+    background: rgb(180, 65, 75);
+  }
+
+  .link-tag.responsive:hover {
+    background: rgb(180, 65, 75);
+  }
+
+  .auth-language-wrapper {
+    display: none;
+  }
+}
