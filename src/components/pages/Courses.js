@@ -41,7 +41,6 @@ const Courses = (props) => {
         { courses && courses.map((course, index) => {
           const courseTime = parseInt(`${course.date.seconds}000`)
           if (courseTime > current){
-            console.log(course.date.seconds)
             return (
               <CourseDetails 
                 key={index} 
@@ -54,7 +53,6 @@ const Courses = (props) => {
               />
             )
           } else {
-            console.log('course date: ', course.date.seconds, 'now:', current)
             return null
           }
         })}
@@ -83,6 +81,7 @@ const mapStateToProps = state => {
   return {
     auth: state.firebase.auth,
     courses: state.firestore.ordered.courses,
+    participants: state.firestore.ordered.course_participants,
     userCourses: state.firebase.profile.courses,
     language: state.language
   }
@@ -102,6 +101,7 @@ export default compose(
     { 
       collection: 'courses',
       orderBy: ['date', 'asc']
-    }
+    },
+    { collection: 'course_participants' }
   ])
 )(Courses);

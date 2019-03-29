@@ -14,19 +14,25 @@ export const courseSignup = (id) => {
     const profile = getState().firebase.profile;
     let courses = getState().firebase.profile.courses;
 
+    const signedUp = getState().firestore.data.course_participants[id].participants;
+
+    const participants = [...signedUp, profile];
+
     courses = [...courses, id];
 
     const course = getState().firestore.data.courses[id];
 
     try {
       dispatch(isLoading(true));
-      await firestore.collection('courses').doc(id).collection('participants').doc(uid).set(profile);
       await firestore.collection(
         'users'
         ).doc(uid).set({
         ...profile,
         courses
       })
+      await firestore.collection(
+        'course_participants'
+      ).doc(id).set({participants});
       await dispatch(courseSignupSuccess({
         ...profile, 
         ...course
@@ -48,6 +54,11 @@ export const courseCancel = (id) => {
     const uid = getState().firebase.auth.uid;
     const profile = getState().firebase.profile;
     let courses = getState().firebase.profile.courses;
+    const signedUp = getState().firestore.data.course_participants[id].participants;
+
+    const participants = signedUp.filter(participant => {
+      return participant.uid !== uid;
+    });
     
     courses = courses.filter(courseId => courseId !== id);
     
@@ -55,13 +66,11 @@ export const courseCancel = (id) => {
 
     try {
       dispatch(isLoading(true));
-      await firestore.collection('courses').doc(id).collection(
-        'participants'
-      ).doc(uid).delete();
       await firestore.collection('users').doc(uid).set({
         ...profile,
         courses
       })
+      await firestore.collection('course_participants').doc(id).set({participants})
       await dispatch(courseCancelSuccess(
         {...profile, ...course})
       );
@@ -78,12 +87,15 @@ export const anonCourseSignup = (data) => {
     const firestore = getFirestore();
     
     const course = getState().firestore.data.courses[data.id];
+    const signedUp = getState().firestore.data.course_participants[data.id].participants;
+
+    const participants = [...signedUp, data.user];
     
     try {
       dispatch(isLoading(true));
       await firestore.collection(
-        'courses'
-        ).doc(data.id).collection('participants').add({ ...data.user})
+        'course_participants'
+        ).doc(data.id).set({participants})
       await dispatch(courseSignupSuccess(
         { ...data.user, ...course}
       ))
