@@ -33,21 +33,28 @@ const Courses = (props) => {
     props.addCurrentCourse(course);
   }
 
+  const current = new Date().getTime();
+
   if (language === 'DE') {
     return (
       <div className='course-page'>
         { courses && courses.map((course, index) => {
-          return (
-            <CourseDetails 
-              key={index} 
-              course={course}
-              signUpCourse={signUpCourse}
-              cancelCourse={cancelCourse}
-              addCourse={addCourse}
-              userCourses={userCourses}
-              auth={auth}
-            />
-          )
+          const courseTime = parseInt(`${course.date.seconds}000`)
+          if (courseTime > current){
+            return (
+              <CourseDetails 
+                key={index} 
+                course={course}
+                signUpCourse={signUpCourse}
+                cancelCourse={cancelCourse}
+                addCourse={addCourse}
+                userCourses={userCourses}
+                auth={auth}
+              />
+            )
+          } else {
+            return null
+          }
         })}
       </div>
     )
@@ -74,6 +81,7 @@ const mapStateToProps = state => {
   return {
     auth: state.firebase.auth,
     courses: state.firestore.ordered.courses,
+    participants: state.firestore.ordered.course_participants,
     userCourses: state.firebase.profile.courses,
     language: state.language
   }
@@ -90,6 +98,10 @@ const mapDispatchToProps = (dispatch) => {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([
-    { collection: 'courses', orderBy: ['date', 'desc']}
+    { 
+      collection: 'courses',
+      orderBy: ['date', 'asc']
+    },
+    { collection: 'course_participants' }
   ])
 )(Courses);

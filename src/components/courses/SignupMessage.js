@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { german, english } from '../languages';
 import { withRouter } from 'react-router-dom';
 import { resetState } from '../../store/actions';
+import moment from 'moment';
 
 const SignupMessage = (props) => {
 
@@ -21,10 +22,10 @@ const SignupMessage = (props) => {
 
   if (props.course.firstName) {
     const { firstName, title, date} = props.course;
-
+    const formattedDate = moment(date.toDate()).format('dddd, LL');
     const string = props.course.cancel ? 
-      lang.cancelSuccess(firstName, title, date) : 
-      lang.signupSuccess(firstName, title, date);
+      lang.cancelSuccess(firstName, title, formattedDate) : 
+      lang.signupSuccess(firstName, title, formattedDate);
 
     return (
       <div className='signedup-page'>
