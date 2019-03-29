@@ -27,30 +27,30 @@ const AboutPD = (props) => {
     const lang = props.language === 'DE' ? german : english;
 
   return (
-    <div className='content-wrapper'>
+    <div className='content-wrapper' id='lynn-image'>
       <div className='paragraph-wrapper'>
         {content}
-      </div>
-      <div className='pd-links'>
-        <h3>{lang.PDlinks}</h3>
-        <ul>
-          <li>
-            <a 
-              target="_blank" 
-              href='https://www.positivediscipline.org/'
-            >
-              Positive Discipline Association
-            </a>
-          </li>
-          <li>
-            <a 
-              target="_blank" 
-              href='https://www.positivediscipline.com/'
-            >
-              {lang.PDbooks}
-            </a>
-          </li>
-        </ul>
+        <div className='pd-links'>
+          <h3>{lang.PDlinks}</h3>
+          <ul>
+            <li>
+              <a 
+                target="_blank" 
+                href='https://www.positivediscipline.org/'
+              >
+                Positive Discipline Association
+              </a>
+            </li>
+            <li>
+              <a 
+                target="_blank" 
+                href='https://www.positivediscipline.com/'
+              >
+                {lang.PDbooks}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   )
