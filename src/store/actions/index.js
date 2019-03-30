@@ -10,6 +10,11 @@ export const hasErrored = (message) => ({
   message
 });
 
+export const makeResponsive = (bool) => ({
+  type: 'MAKE_RESPONSIVE',
+  bool
+})
+
 export const loginSuccess = () => ({
   type: 'LOGIN_SUCCESS'
 });

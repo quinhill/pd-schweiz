@@ -545,6 +545,22 @@ li {
     background: white;
   }
 
+  .auth-language-wrapper.responsive {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 272px;
+    z-index: 2;
+    height: 150px;
+  }
+
+  .auth-content {
+    box-shadow: none;
+  }
+
   .link-tag.responsive.active {
     background: rgb(180, 65, 75);
   }
