@@ -618,7 +618,14 @@ li {
 
   .paragraph-wrapper {
     position: relative;
-    top: 270px;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    top: 150px;
+  }
+
+  .text-container {
+    width: 90%;
   }
 
   .card-title {
