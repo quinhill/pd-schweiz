@@ -10,7 +10,7 @@ const CourseSignup = (props) => {
   const lang = props.language === 'DE' ? german : english;
 
   return(
-    <div className='content-wrapper'>
+    <div className='course-signup-wrapper'>
       <div className='signup-wrapper'>
         <AnonSignup id={id} />
         <div className='create-account'>

@@ -260,9 +260,9 @@ nav {
 /* Course card styling */
 
 .course-page {
-  max-height: calc(100vh - 80px);
+  max-height: calc(100vh - 70px);
   padding-top: 10px;
-  overflow-y: auto;
+  overflow-y: scroll;
   width: 100%;
   display: flex;
   align-items: center;
@@ -299,6 +299,13 @@ nav {
   justify-content: flex-end;
 }
 
+.course-signup-wrapper {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+}
+
 .course-signup-button {
   background: rgb(180, 65, 75);
   color: #ffffff;
@@ -322,6 +329,7 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 .auth-form {
@@ -617,10 +625,10 @@ li {
   }
 
   .paragraph-wrapper {
-    position: relative;
     width: 100%;
     padding: 0;
     box-sizing: border-box;
+    position: relative;
     top: 150px;
   }
 
@@ -630,6 +638,7 @@ li {
 
   .card-title {
     flex-direction: column;
+    text-align: center;
   }
 
   .card-p {
@@ -640,8 +649,26 @@ li {
     display: block;
   }
 
+  .user-button {
+    margin: 0;
+  }
+
+  .back-to-home {
+    background: none;
+  }
+
   .signup-button-wrapper {
     justify-content: center;
     margin-top: 30px;
+  }
+
+  .course-signup-wrapper {
+    align-items: center;
+  }
+
+  .signup-wrapper {
+    flex-direction: column;
+    position: relative;
+    top: 350px;
   }
 }
