@@ -383,20 +383,20 @@ label {
 
 #kc-image {
   background-image: url('/KC.png');
-  width: 100%;
+  width: auto;
   height: calc(100vh - 70px);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-x: -35vw;
+  background-position-x: 40%;
 }
 
 #lynn-image {
-  width: 100%;
+
   height: calc(100vh - 70px);
   background-repeat: no-repeat;
   background-image: url('/Lynn-Lott.jpg');
   background-size: cover;
-  /* background-position-x: -20vw; */
+  background-position-x: 80%;
 }
 
 .paragraph-wrapper {
@@ -471,20 +471,45 @@ li {
   justify-content: space-evenly;
 }
 
+/* Contact Page */
+.contact-page {
+  padding-top: 20px;
+  padding-left: 10%;
+}
+
+.address-title {
+  margin-left: 0;
+}
+
+.address-wrapper {
+  margin-bottom: 20px;
+}
+
+.contact-p {
+  margin: 0;
+}
+
+.spacing {
+  display: inline-block;
+  width: 5px;
+}
+
 @media only screen and (max-width: 1400px) {
-  #lynn-image {
-    background-position-x: -23vw;
-  }
+ 
 }
 
 @media only screen and (max-width: 1200px) {
-  #kc-image {
-    background-position-x: -35vw;
-  }
+  
 }
 
 @media only screen and (max-width: 900px) {
+
+  .course-wrapper {
+    width: 90%;
+  }
+
   .content-wrapper {
+    display: flex;
     padding: 0;
   }
 
@@ -493,17 +518,21 @@ li {
   }
 
   #lynn-image {
-    background-image: none;
+    display: none;
   }
 
   #kc-image {
-    background-image: none;
+    display: none;
   }
 }
 
 @media only screen and (max-width: 700px) {
   nav {
     justify-content: space-between;
+  }
+
+  .body {
+    background-image: none;
   }
 
   .bars-button {
@@ -583,8 +612,29 @@ li {
     display: none;
   }
 
+  #signout-button {
+    margin: 0;
+  }
+
   .paragraph-wrapper {
     position: relative;
     top: 270px;
+  }
+
+  .card-title {
+    flex-direction: column;
+  }
+
+  .card-p {
+    margin: 10px 5% 10px 5%;
+  }
+
+  .description-tag {
+    display: block;
+  }
+
+  .signup-button-wrapper {
+    justify-content: center;
+    margin-top: 30px;
   }
 }
