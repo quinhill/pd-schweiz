@@ -27,9 +27,12 @@ const AboutPD = (props) => {
     const lang = props.language === 'DE' ? german : english;
 
   return (
-    <div className='content-wrapper' id='lynn-image'>
+    <div className='content-wrapper'>
+      <div id='lynn-image'></div>
       <div className='paragraph-wrapper'>
-        {content}
+        <div className='text-container'>
+          {content}
+        </div>
         <div className='pd-links'>
           <h3>{lang.PDlinks}</h3>
           <ul>

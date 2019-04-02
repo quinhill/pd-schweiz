@@ -371,36 +371,46 @@ label {
 /* Page Content */
 
 .content-wrapper {
-  padding-left: 15%;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 30% 70%;
   justify-content: center;
   align-items: center;
   background-size: cover;
   height: calc(100vh - 70px);
-  background-position-x: -30vw;
-  background-repeat: no-repeat;
   overflow-y: scroll;
 }
 
 #kc-image {
   background-image: url('/KC.png');
-  position: relative;
-  background-position-y: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: -35vw;
 }
 
 #lynn-image {
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-repeat: no-repeat;
   background-image: url('/Lynn-Lott.jpg');
-  background-size: contain;
-  background-position-x: -20vw;
+  background-size: cover;
+  /* background-position-x: -20vw; */
 }
 
 .paragraph-wrapper {
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  justify-content: flex-start;
   padding: 10px;
+}
+
+.text-container {
+  background: rgba(255, 255, 255, 0.5);
+  width: 80%;
 }
 
 .pd-links {
