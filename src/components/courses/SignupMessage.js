@@ -16,7 +16,9 @@ const SignupMessage = (props) => {
 
   if (props.isLoading) {
     return (
-      <p>{lang.loading}</p>
+      <div className='loading-container'>
+        <p>{lang.loading}</p>
+      </div>
     )
   }
 

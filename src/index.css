@@ -323,6 +323,14 @@ nav {
   cursor: pointer;
 }
 
+.loading-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Auth Pages */
 
 .auth-page {
@@ -399,7 +407,6 @@ label {
 }
 
 #lynn-image {
-
   height: calc(100vh - 70px);
   background-repeat: no-repeat;
   background-image: url('/Lynn-Lott.jpg');
