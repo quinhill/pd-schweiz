@@ -7,24 +7,32 @@ const Contact = (props) => {
   const lang = props.language === 'DE' ? german : english;
 
   return (
-    <div className='content-wrapper'>
-      <div className='paragraph-wrapper'>
-        <h3>{lang.address}</h3>
-        <div className='address-wrapper'>
-          <p>KC Hill</p>
-          <p>Kirchgasse 1</p>
-          <p>3865 Meiringen</p>
-        </div>
-        <div className='phone-wrapper'>
-          <p>{lang.phone}: 
-            <a href="tel:+41795873842">+41 (0)79 587 38 43</a>
-          </p>
-        </div>
-        <div className='email-wrapper'>
-          <p>Email: 
-            <a href="mailto:kc.hill@positivedisciplineschweiz.ch">kc.hill@positivedisciplineschweiz.ch</a>
-          </p>
-        </div>
+    <div className='contact-page'>
+      <h3 className='address-title'>{lang.address}</h3>
+      <div className='address-wrapper'>
+        <p className='contact-p'>KC Hill</p>
+        <p className='contact-p'>Kirchgasse 1</p>
+        <p className='contact-p'>3865 Meiringen</p>
+      </div>
+      <div className='address-wrapper'>
+        <p>{lang.phone}: 
+          <span className='spacing'></span>
+          <a 
+            href="tel:+41795873842"
+          >
+            +41 (0)79 587 38 43
+          </a>
+        </p>
+      </div>
+      <div className='address-wrapper'>
+        <p>Email: 
+          <span className='spacing'></span>
+          <a 
+            href="mailto:kc.hill@positivedisciplineschweiz.ch"
+          >
+              kc.hill@positivedisciplineschweiz.ch
+          </a>
+        </p>
       </div>
     </div>
   )

@@ -5,6 +5,8 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { makeResponsive } from './store/actions';
 import Home from './components/pages/Home';
 import Contact from './components/pages/Contact';
 import Courses from './components/pages/Courses';
@@ -20,12 +22,20 @@ import ConfirmCourse from './components/courses/ConfirmCourse';
 import ConfirmCancel from './components/courses/ConfirmCancel';
 
 class App extends Component {
+
+  hideMenu = () => {
+    this.props.makeResponsive(false)
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div className="App">
           <Navbar />
-          <div className='body'>
+          <div 
+            className='body' 
+            onClick={this.hideMenu}
+          >
           <Switch>
             <Route exact path='/' component={AboutPD} />
             <Route path='/contact' component={Contact} />
@@ -48,4 +58,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  makeResponsive: (bool) => dispatch(makeResponsive(bool))
+})
+
+export default connect(null, mapDispatchToProps)(App);

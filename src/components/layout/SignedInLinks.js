@@ -23,7 +23,8 @@ const SignedInLinks = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  language: state.language
+  language: state.language,
+  responsive: state.responsive
 })
 
 const mapDispatchToProps = (dispatch) => {

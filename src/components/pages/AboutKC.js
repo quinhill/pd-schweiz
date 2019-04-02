@@ -25,9 +25,12 @@ const AboutKC = (props) => {
 
 
   return (
-    <div className='content-wrapper' id='kc-image'>
+    <div className='content-wrapper'>
+      <div id='kc-image'></div>
       <div className='paragraph-wrapper'>
-        {content}
+        <div className='text-container'>
+          {content}
+        </div>
       </div>
     </div>
   )

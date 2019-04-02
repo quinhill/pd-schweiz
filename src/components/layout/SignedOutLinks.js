@@ -7,6 +7,8 @@ const SignedInLinks = (props) => {
 
   const lang = props.language === 'DE' ? german : english;
 
+  const changeClass = props.responsive ? 'responsive' : null;
+
   return (
     <div className='auth-background'>
       <div className='auth-button-wrapper'>
@@ -16,7 +18,7 @@ const SignedInLinks = (props) => {
           {lang.user}
         </button>
       </div>
-      <div className='auth-content'>
+      <div className={`auth-content ${changeClass}`}>
         <div className='auth-tag-background'>
           <NavLink 
             className='auth-tag' 
@@ -39,7 +41,8 @@ const SignedInLinks = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  language: state.language
+  language: state.language,
+  responsive: state.responsive
 })
 
 export default connect(mapStateToProps)(SignedInLinks);
