@@ -261,7 +261,6 @@ nav {
 
 .course-page {
   max-height: calc(100vh - 70px);
-  padding-top: 10px;
   overflow-y: scroll;
   width: 100%;
   display: flex;
