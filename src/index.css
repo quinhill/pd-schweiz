@@ -261,7 +261,6 @@ nav {
 
 .course-page {
   max-height: calc(100vh - 70px);
-  padding-top: 10px;
   overflow-y: scroll;
   width: 100%;
   display: flex;
@@ -323,6 +322,14 @@ nav {
   cursor: pointer;
 }
 
+.loading-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Auth Pages */
 
 .auth-page {
@@ -382,9 +389,6 @@ label {
   width: 100%;
   display: grid;
   grid-template-columns: 30% 70%;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
   height: calc(100vh - 70px);
   overflow-y: scroll;
 }
@@ -399,7 +403,6 @@ label {
 }
 
 #lynn-image {
-
   height: calc(100vh - 70px);
   background-repeat: no-repeat;
   background-image: url('/Lynn-Lott.jpg');
@@ -500,14 +503,6 @@ li {
 .spacing {
   display: inline-block;
   width: 5px;
-}
-
-@media only screen and (max-width: 1400px) {
- 
-}
-
-@media only screen and (max-width: 1200px) {
-  
 }
 
 @media only screen and (max-width: 900px) {
@@ -629,7 +624,6 @@ li {
     padding: 0;
     box-sizing: border-box;
     position: relative;
-    top: 150px;
   }
 
   .text-container {
@@ -670,5 +664,9 @@ li {
     flex-direction: column;
     position: relative;
     top: 350px;
+  }
+
+  .auth-content {
+    left: -20px;
   }
 }

@@ -84,7 +84,7 @@ const CourseDetails = (props) => {
     )
   } else {
     return (
-      <div className="container center">
+      <div className="loading-container">
         <p>Loading course...</p>
       </div>
     )
