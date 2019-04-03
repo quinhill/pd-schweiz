@@ -30,6 +30,15 @@ const AboutKC = (props) => {
       <div className='paragraph-wrapper'>
         <div className='text-container'>
           {content}
+          <p>
+            In 2011 haben wir die Ecole d’Humanité verlassen und sind nach Meiringen gezogen. Dann haben wir die Zertifizierung als Trainer in der Positiven Disziplin erworben. In meinem Werdegang habe ich auch Weiterbildungen gemacht und Erfahrung gesammelt:
+          </p>
+          <ul>
+            <li>in der „Gewaltfreien Kommunikation“ (GFK) von Marshall Rosenberg</li>
+            <li>in der „Themenzentrierte Interaktion“ (TZI) von Ruth Cohn</li>
+            <li> über ADHS ( Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung ) und ASS (Autismusspektrumstörung)</li>
+            <li>über Mobbing.</li>
+          </ul>
         </div>
       </div>
     </div>

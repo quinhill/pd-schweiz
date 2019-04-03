@@ -28,8 +28,8 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
-ol, ul {
-  list-style: none;
+li {
+  margin-left: 20px;
 }
 blockquote, q {
   quotes: none;
