@@ -34,7 +34,7 @@ export const german = {
   cancelSuccess: (name, course, date) => (`Hallo ${name}, Sie haben sich erfolgreich vom ${course} am ${date} abgemeldet.`),
   confirmCancel: (title) => (`Wollen Sie sich wirklich vom ${title} abmelden?`),
   confirmCourse: (title) => (`Wollen Sie sich für den ${title} anmelden?`),
-  newUserSignup: (name, title) => (`${name}, danke dass Sie ein Konto bei Positive Discipline Schweiz erstellt habe. Wollen Sie sich jetzt für den ${title} anmelden?`),
+  newUserSignup: (name) => (`${name}, danke dass Sie ein Konto bei Positive Discipline Schweiz erstellt haben!`),
   signupSuccess: (name, course, date) => (`${name}, Danke dass Sie sich für den ${course} am ${date} angemeldet haben! Ich freue mich Sie dort zu sehen! -KC`),
   signupQuestion: (title) => (`Wollen Sie sich jetzt für den ${title} anmelden?`)
 };
@@ -75,7 +75,7 @@ export const english = {
   cancelSuccess: (name, course, date) => (`Hi ${name}, you have successfully been removed from the list of participants of the ${course} on ${date}.`),
   confirmCancel: (title) => (`Are you sure you want to be removed from the list of participants for the ${title}?`),
   confirmCourse: (title) => (`Would you like to sign up for ${title}?`),
-  newUserSignup: (name, title) => (`${name}, Thank you for creating an account with Positive Discipline Schweiz. Would you like to proceed with signing up for the ${title}?`),
+  newUserSignup: (name) => (`${name}, Thank you for creating an account with Positive Discipline Schweiz!`),
   signupQuestion: (title) => (`Would you like to sign up for ${title} now?`),
   signupSuccess: (name, course, date) => (`${name}, thank you for signing up for ${course} on ${date}! I look forward to seeing you there! -KC`)
 };
