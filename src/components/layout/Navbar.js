@@ -106,7 +106,6 @@ const Navbar = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     language: state.language,
     auth: state.firebase.auth,

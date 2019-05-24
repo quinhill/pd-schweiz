@@ -33,7 +33,6 @@ class SignUp extends Component {
       history,
       signUp
     } = this.props;
-    console.log(course.id)
     signUp(this.state);
     if (course.id) {
       return history.push('/confirmcourse');
