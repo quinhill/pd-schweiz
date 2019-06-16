@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { signIn } from '../../store/thunks/authThunks';
 import { withRouter } from 'react-router-dom';
 import { german, english } from '../languages';
+import { stat } from 'fs';
 
 class SignIn extends Component {
   constructor() {
     super()
     this.state = {
       email: '',
-      password: ''
+      password: '',
     }
   }
 
@@ -19,15 +20,19 @@ class SignIn extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    this.props.signIn(this.state);
-    this.props.history.push('/courses')
+    await this.props.signIn(this.state);
+    if (!this.props.auth.isEmpty) {
+      this.props.history.push('/courses')
+    } else {
+      console.log(this.props.hasErrored)
+    }
   }
 
   render() {
 
-    const { authError, language } = this.props;
+    const { hasErrored, language } = this.props;
 
     const lang = language === 'DE' ? german : english;
 
@@ -61,7 +66,13 @@ class SignIn extends Component {
             {lang.signin}
           </button>
           <div>
-            { authError ? <p>{authError}</p> : null }
+            { 
+              hasErrored ? 
+                <p className='error-message'>
+                  {hasErrored.message}
+                </p> : 
+              null 
+            }
           </div>
         </form>
       </div>
@@ -71,8 +82,9 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError,
-    language: state.language
+    hasErrored: state.hasErrored,
+    language: state.language,
+    auth: state.firebase.auth
   }
 }
 

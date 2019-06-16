@@ -188,6 +188,10 @@ nav {
   cursor: pointer;
 }
 
+.error-message {
+  color: red;
+}
+
 #home-link {
   height: 100%;
   display: flex;
