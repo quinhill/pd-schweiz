@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/thunks/authThunks';
 import { withRouter } from 'react-router-dom';
-import { german, english } from '../languages';
-import { stat } from 'fs';
+import { 
+  german, 
+  english,
+  errorCodeDe,
+  errorCodeEn
+} from '../languages';
+
 
 class SignIn extends Component {
   constructor() {
@@ -11,6 +16,7 @@ class SignIn extends Component {
     this.state = {
       email: '',
       password: '',
+      errorMessage: ''
     }
   }
 
@@ -26,13 +32,24 @@ class SignIn extends Component {
     if (!this.props.auth.isEmpty) {
       this.props.history.push('/courses')
     } else {
-      console.log(this.props.hasErrored)
+      this.renderError()
     }
+  }
+
+  renderError = () => {
+    const { hasErrored, language } = this.props;
+    const code = hasErrored.code;
+    const errorMessage = language === 'DE' ?
+      errorCodeDe(code) :
+      errorCodeEn(code);
+    this.setState({ errorMessage })
   }
 
   render() {
 
-    const { hasErrored, language } = this.props;
+    const { language } = this.props;
+
+    const { errorMessage } = this.state;
 
     const lang = language === 'DE' ? german : english;
 
@@ -67,11 +84,11 @@ class SignIn extends Component {
           </button>
           <div>
             { 
-              hasErrored ? 
+              errorMessage ? 
                 <p className='error-message'>
-                  {hasErrored.message}
+                  {errorMessage}
                 </p> : 
-              null 
+                null 
             }
           </div>
         </form>

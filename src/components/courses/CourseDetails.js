@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-
+import 'moment/locale/de';
 
 const CourseDetails = (props) => {
 
@@ -11,6 +11,7 @@ const CourseDetails = (props) => {
     auth
   } = props;
 
+  moment.locale('de')
   const date = moment(course.date.toDate()).format('dddd, LL');
 
   let signedUp;
