@@ -36,7 +36,7 @@ export const german = {
   confirmCourse: (title) => (`Wollen Sie sich für den ${title} anmelden?`),
   newUserSignup: (name) => (`${name}, danke dass Sie ein Konto bei Positive Discipline Schweiz erstellt haben!`),
   signupSuccess: (name, course, date) => (`${name}, Danke dass Sie sich für den ${course} am ${date} angemeldet haben! Ich freue mich Sie dort zu sehen! -KC`),
-  signupQuestion: (title) => (`Wollen Sie sich jetzt für den ${title} anmelden?`)
+  signupQuestion: (title) => (`Wollen Sie sich jetzt für den ${title} anmelden?`),
 };
 
 export const english = {
@@ -79,3 +79,26 @@ export const english = {
   signupQuestion: (title) => (`Would you like to sign up for ${title} now?`),
   signupSuccess: (name, course, date) => (`${name}, thank you for signing up for ${course} on ${date}! I look forward to seeing you there! -KC`)
 };
+
+
+export const errorCodeDe = (code) => {
+  switch (code) {
+    case 'auth/user-not-found':
+      return 'Es gibt keinen Benutzerdatensatz, der dieser Kennung entspricht. Bitte überprüfen Sie die Rechtschreibung oder erstellen Sie ein Konto.';
+    case 'auth/wrong-password':
+      return 'Das Passwort ist ungültig oder der Benutzer hat kein Passwort.'
+    default:
+      return null
+  }
+}
+
+export const errorCodeEn = (code) => {
+  switch (code) {
+    case 'auth/user-not-found':
+      return 'There is no user record corresponding to this identifier. Please check your spelling or create an account.';
+    case 'auth/wrong-password':
+      return 'The password is invalid or the user does not have a password.'
+    default:
+      return null
+  }
+}
