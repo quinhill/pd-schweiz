@@ -65,6 +65,9 @@ export const signUp = (newUser) => {
           email: newUser.email,
           address: newUser.address,
           uid: response.user.uid,
+          zip: newUser.zip,
+          city: newUser.city,
+          phone: newUser.phone,
           courses: []
         });
       await dispatch(signupSuccess());

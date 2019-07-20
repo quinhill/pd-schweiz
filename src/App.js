@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { makeResponsive } from './store/actions';
-import Home from './components/pages/Home';
 import Contact from './components/pages/Contact';
 import Courses from './components/pages/Courses';
 import AboutPD from './components/pages/AboutPD';

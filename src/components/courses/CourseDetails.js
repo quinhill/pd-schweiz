@@ -35,20 +35,49 @@ const CourseDetails = (props) => {
     props.history.push('/confirmcancel');
   }
 
+  const courseDates = course.dates ? 
+    course.dates.map((date) => {
+      if (date.length) {
+        const dateString = new Date(date);
+        return moment(dateString).format('dddd, LL');
+      } else {
+        return null
+      }
+    }) :
+    null;
+
   if (course) {
     return (
       <div className="course-wrapper">
         <div className="card-title">
           <h3 className="card-title">{course.title}</h3>
-          <p>{date}</p>
         </div>
         <p className='card-p'>
           <span className='description-tag'>Ort: </span>
           {course.location}
         </p>
+        <p className='description-tag'>Daten:</p>
+        {
+          courseDates ? 
+            courseDates.map((date, index) => {
+              return (
+                <p 
+                  className='card-p'
+                  key={index}
+                >
+                  {date}
+                </p>
+              )
+            }) :
+            null
+        }
         <p className='card-p'>
-          <span className='description-tag'>Zeit: </span>
-          {course.time}
+          <span className='description-tag'>Beginnt um: </span>
+          {course.timeStart}
+        </p>
+        <p className='card-p'>
+          <span className='description-tag'>Endet um: </span>
+          {course.timeEnd}
         </p>
         {
           course.description ?
