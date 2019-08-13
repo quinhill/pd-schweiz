@@ -12,7 +12,6 @@ const CourseDetails = (props) => {
   } = props;
 
   moment.locale('de')
-  const date = moment(course.date.toDate()).format('dddd, LL');
 
   let signedUp;
   if (userCourses) {
@@ -79,6 +78,10 @@ const CourseDetails = (props) => {
           <span className='description-tag'>Endet um: </span>
           {course.timeEnd}
         </p>
+        <p className='card-p'>
+          <span className='description-tag'>Kosten: </span>
+          {course.cost}
+        </p>
         {
           course.description ?
             <p className='card-p'>
@@ -87,10 +90,6 @@ const CourseDetails = (props) => {
             </p> :
             null
         }
-        <p className='card-p'>
-          <span className='description-tag'>Preis: </span>
-          {course.cost}
-        </p>
         <div className='signup-button-wrapper'>
           {
             signedUp ?

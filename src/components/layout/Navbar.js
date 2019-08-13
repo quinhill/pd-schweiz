@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import SignedInNavLinks from './SignedInLinks';
 import SignedOutNavLinks from './SignedOutLinks';
@@ -38,11 +38,6 @@ const Navbar = (props) => {
           id='home-link'
           className='link-tag'
         >
-          <img
-            src='/positive-discipline.png'
-            alt='positive discipline'
-            className='home-link'
-          />
         </Link>
       </div>
       <div className={`navbar ${changeClass}`}>
@@ -73,7 +68,7 @@ const Navbar = (props) => {
           </NavLink>
         </div>
       </div>
-      <div 
+      <div
         className={`auth-language-wrapper ${changeClass}`}
       >
         {auth.uid ? <SignedInNavLinks /> : <SignedOutNavLinks />}

@@ -28,9 +28,9 @@ const Contact = (props) => {
         <p>Email: 
           <span className='spacing'></span>
           <a 
-            href="mailto:kc.hill@positivedisciplineschweiz.ch"
+            href="mailto:kc.hill@connections-eb.ch"
           >
-              kc.hill@positivedisciplineschweiz.ch
+              kc.hill@connections-eb.ch
           </a>
         </p>
       </div>

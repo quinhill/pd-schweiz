@@ -51,6 +51,8 @@ export const signUp = (newUser) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
 
+    const date = new Date(Date.now()).toString();
+
     try {
       dispatch(isLoading(true));
       const response = await firebase.auth().createUserWithEmailAndPassword(
@@ -60,6 +62,7 @@ export const signUp = (newUser) => {
       await firestore.collection('users').doc(
           response.user.uid
         ).set({
+          createdOn: date,
           firstName: newUser.firstName,
           lastName: newUser.lastName,
           email: newUser.email,
