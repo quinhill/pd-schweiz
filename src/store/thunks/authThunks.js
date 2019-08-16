@@ -82,3 +82,36 @@ export const signUp = (newUser) => {
     }
   }
 };
+
+export const updateUser = (details) => {
+  return (dispatch, getState, {getFirestore}) => {
+    const firestore = getFirestore();
+
+    console.log(details)
+
+    const createdOn = details.createdOn === undefined ?
+    new Date(Date.now()).toString() :
+    details.createdOn;
+
+    const courses = details.courses === undefined ?
+    [] :
+    details.courses;
+
+    firestore.collection('users').doc(details.uid).set({
+      firstName: details.firstName,
+      lastName: details.lastName,
+      address: details.address,
+      city: details.city,
+      zip: details.zip,
+      email: details.email,
+      phone: details.phone,
+      uid: details.uid,
+      courses,
+      createdOn
+    }).then(() => {
+      dispatch({ type: 'UPDATE_USER_SUCCESS' })
+    }).catch((err) => {
+      dispatch({ type: 'UPDATE_USER_ERROR', err })
+    })
+  }
+};
