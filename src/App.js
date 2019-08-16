@@ -13,6 +13,7 @@ import AboutPD from './components/pages/AboutPD';
 import AboutKC from './components/pages/AboutKC';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import AccountPage from './components/pages/AccountPage';
 import CourseDetails from './components/courses/CourseDetails';
 import CourseSignup from './components/courses/CourseSignup';
 import SignupMessage from './components/courses/SignupMessage';
@@ -49,6 +50,7 @@ class App extends Component {
             <Route path='/signupsuccess' component={SignupSuccess} />
             <Route path='/confirmcourse' component={ConfirmCourse} />
             <Route path='/confirmcancel' component={ConfirmCancel} />
+            <Route path='/account' component={AccountPage} />
           </Switch>
           </div>
         </div>

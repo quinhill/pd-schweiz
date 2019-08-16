@@ -276,6 +276,7 @@ nav {
 }
 
 .course-wrapper {
+  background: rgb(180, 65, 75);
   width: 700px;
   border-radius: 5px;
   padding: 15px;
@@ -283,11 +284,26 @@ nav {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
+.card-title-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
 .card-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 900;
+  color: #ffffff;
+}
+
+.shrink {
+  display: none;
+}
+
+.expand {
+  background: #ffffff;
+  padding: 15px;
 }
 
 .card-p {
@@ -388,7 +404,45 @@ label {
   font-size: 15px;
 }
 
+#signout-button {
+  color: #ffffff;
+  border: none;
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(180, 65, 75);
+  
+}
+
 /* Contact */
+
+/* Account Page */
+
+.cancel-button {
+  position: relative;
+  top: 340px;
+  left: -35px;
+  background-image: url('/close.png');
+  background-size: cover;
+  height: 27px;
+  width: 27px;
+  border: none;
+  margin-top: 15px;
+}
+
+#save-changes-button {
+  margin-left: -50px;
+}
+
+.user-page {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.user-info {
+  margin-left: 20px;
+}
 
 /* Page Content */
 
@@ -623,7 +677,11 @@ li {
   }
 
   #signout-button {
-    margin: 0;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(180, 65, 75);
+
   }
 
   .paragraph-wrapper {
