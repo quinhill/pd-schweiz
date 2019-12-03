@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { german, english } from '../languages';
+import Carousel from '../Carousel/Carousel';
+import Slideshow from '../Carousel/Slider';
 
 const AboutPD = (props) => {
 
@@ -28,7 +30,7 @@ const AboutPD = (props) => {
 
   return (
     <div className='content-wrapper'>
-      <div id='lynn-image'></div>
+      <Slideshow />
       <div className='paragraph-wrapper'>
         <div className='text-container'>
           {content}

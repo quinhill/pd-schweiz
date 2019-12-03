@@ -463,10 +463,26 @@ label {
   background-position-x: 40%;
 }
 
-#lynn-image {
+#lynn {
   height: calc(100vh - 70px);
   background-repeat: no-repeat;
-  background-image: url('/Lynn-Lott.jpg');
+  background-image: url('/lynn.jpg');
+  background-size: cover;
+  background-position-x: 80%;
+}
+
+#alfred {
+  height: calc(100vh - 70px);
+  background-repeat: no-repeat;
+  background-image: url('/alfred.jpg');
+  background-size: cover;
+  background-position-x: 80%;
+}
+
+#jane {
+  height: calc(100vh - 70px);
+  background-repeat: no-repeat;
+  background-image: url('/jane.jpg');
   background-size: cover;
   background-position-x: 80%;
 }
